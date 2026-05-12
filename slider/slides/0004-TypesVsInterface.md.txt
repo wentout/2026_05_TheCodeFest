@@ -89,3 +89,37 @@ console.log(myInstance.describe());  // тот же результат!
 </div>
 
 -----
+
+# А как в TypeScript?
+
+<div className='codemedium'>
+
+```typescript
+// Тип данных (структура)
+type MyType = {
+    name: string;
+    createdAt: Date;
+};
+
+// Интерфейс поведения (прототип)
+interface MyInterface {
+    describe(): string;
+}
+
+// Объединяем через пересечение
+type MyInstance = MyType & MyInterface;
+
+// Конструктор возвращает Instance
+interface MyCtor extends NewableFunction {
+    new(name: string): MyInstance;
+    prototype: MyInterface;
+}
+```
+
+</div>
+
+<div className="slide-callout">
+<h3 className="secondary">Type — структура, Interface — поведение, &amp; — объединение</h3>
+</div>
+
+-----

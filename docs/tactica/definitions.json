@@ -1,10 +1,10 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-05-11T21:58:29.929Z",
+  "generatedAt": "2026-05-12T09:09:10.909Z",
   "definitions": {
     "List": {
       "name": "List",
-      "location": "/code/talks/2026_05_HolyJS/slider/src/models/List.ts:36:21",
+      "location": "/code/talks/2026_05_TheCodeFest/slider/src/models/List.ts:36:21",
       "kind": "define",
       "parent": null,
       "strictChain": true,
@@ -12,7 +12,7 @@
     },
     "List.Slide": {
       "name": "Slide",
-      "location": "/code/talks/2026_05_HolyJS/slider/src/models/List.ts:50:27",
+      "location": "/code/talks/2026_05_TheCodeFest/slider/src/models/List.ts:50:27",
       "kind": "define",
       "parent": "List",
       "strictChain": true,

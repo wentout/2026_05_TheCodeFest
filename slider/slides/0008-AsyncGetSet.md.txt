@@ -149,6 +149,37 @@ console.log(await myObj.field);        // 321 (через 1 сек)
 
 -----
 
+# А как в TypeScript?
+
+<div className='codemedium'>
+
+```typescript
+// TS НЕ поддерживает async get/set напрямую
+// Но можно типизировать через Promise:
+
+interface AsyncField {
+    get(): Promise<number>;
+    set(value: number): Promise<void>;
+}
+
+// Или через прокси-объект:
+interface AsyncObject {
+    field: Promise<number>;
+}
+
+// Присваивание = number, не Promise!
+const value: number = await (myObj.field = 321);
+// type error: assignment возвращает 321, не Promise
+```
+
+</div>
+
+<div className="slide-callout">
+<h3 className="secondary">async get/set — runtime-only, TS видит только синхронный интерфейс</h3>
+</div>
+
+-----
+
 
 # Где это может применяться
 

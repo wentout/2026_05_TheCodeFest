@@ -13,12 +13,12 @@ const Mermaid = ({ children }) => {
 				startOnLoad: false,
 				theme: 'dark',
 				themeVariables: {
-					primaryColor: '#1a1a2e',
-					primaryTextColor: '#F8F9FA',
-					primaryBorderColor: '#00F0FF',
-					lineColor: '#00F0FF',
-					secondaryColor: '#2d1b4e',
-					tertiaryColor: '#0B0B0E',
+					primaryColor: '#0B1A3D',
+					primaryTextColor: '#FFFFFF',
+					primaryBorderColor: '#A8D0E6',
+					lineColor: '#A8D0E6',
+					secondaryColor: '#1a2d5c',
+					tertiaryColor: '#0B1A3D',
 					fontFamily: 'var(--font-sans)',
 					fontSize: '22px'
 				}

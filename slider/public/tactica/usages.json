@@ -1,30 +1,30 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-05-11T21:58:29.930Z",
+  "generatedAt": "2026-05-12T09:09:10.910Z",
   "usages": {
     "List.Slide": [
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:345:7",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:345:7",
         "kind": "propertyAccess",
         "code": "this.Slide"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:346:16",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:346:16",
         "kind": "instantiation",
         "code": "new this.Slide()"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:346:20",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:346:20",
         "kind": "propertyAccess",
         "code": "this.Slide"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:636:17",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:636:17",
         "kind": "instantiation",
         "code": "new slide.Slide()"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:636:21",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:636:21",
         "kind": "propertyAccess",
         "code": "slide.Slide"
       }

@@ -5,7 +5,7 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/2026_05_HolyJS/',
+  base: '/2026_05_TheCodeFest/',
   server: {
     port: 3030,
     strictPort: true

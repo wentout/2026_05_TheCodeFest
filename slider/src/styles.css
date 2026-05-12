@@ -39,8 +39,8 @@
 }
 
 body {
-  background: var(--holy-bg, #020203);
-  color: var(--holy-white, #d3d3e7);
+  background: var(--cf-bg, #0B1A3D);
+  color: var(--cf-white, #FFFFFF);
   font-family: var(--font-sans, 'Inter', system-ui, sans-serif);
   overflow: hidden;
   display: flex;
@@ -50,13 +50,13 @@ body {
   margin: 0;
 }
 
-/* === BACKGROUNDS FROM 2023 TEMPLATE === */
+/* === CODEFEST BACKGROUNDS === */
 .Slide {
   display: block;
   margin: 0;
   width: min(100vw, calc(100vh * 16 / 9));
   height: min(100vh, calc(100vw * 9 / 16));
-  background-image: url('/content/bg_main.jpg');
+  background: var(--cf-bg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -66,22 +66,22 @@ body {
 .Slide:has(.Title),
 .Slide:has(.StarterSlide),
 .Slide:has(.title-slide) {
-  background-image: url('/content/bg_title_good.jpg');
+  background: var(--cf-bg);
 }
 
 .Slide:has(.slide-bio) {
-  background-image: url('/content/bg_bio.jpg');
+  background: var(--cf-bg);
 }
 
-/* HolyJS logo */
+/* CodeFest logo */
 .Slide::after {
   content: '';
   position: absolute;
-  top: 5vh;
+  top: 3vh;
   left: 3vw;
-  width: 12vw;
-  height: 7vh;
-  background-image: url('/content/logo_holyjs.png');
+  width: 14vw;
+  height: 8vh;
+  background-image: url('/content/logo_codefest.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left top;
@@ -111,20 +111,20 @@ body {
   --space-xl: 12vh;
   --space-xxl: 15vh;
 
-  /* Color roles — 6 semantic colors */
+  /* Color roles — CodeFest semantic colors */
   --color-primary: white;        /* Main concept, Type */
-  --color-secondary: lightgray; /* Contrast, Interface */
-  --color-accent: green;        /* Success, validation */
-  --color-danger: red;          /* Errors, warnings */
-  --color-muted: gray;          /* Secondary text, asides */
-  --color-text: #d3d3e7;        /* Default body text */
+  --color-secondary: #A8D0E6;   /* Contrast, Interface — light blue from @ icon */
+  --color-accent: #E91E8C;      /* Success, validation — pink from WiFi icon */
+  --color-danger: #FF4D7A;      /* Errors, warnings — softer pink/red */
+  --color-muted: #8A9BB8;       /* Secondary text, asides */
+  --color-text: #FFFFFF;        /* Default body text */
 
-  /* HolyJS Palette */
-  --holy-magenta: #FF00FF;
-  --holy-cyan: #00F0FF;
-  --holy-bg: #0B0B0E;
-  --holy-white: #F8F9FA;
-  --holy-gray: #71717A;
+  /* CodeFest Palette */
+  --cf-pink: #E91E8C;
+  --cf-blue: #A8D0E6;
+  --cf-bg: #0B1A3D;
+  --cf-white: #FFFFFF;
+  --cf-muted: #8A9BB8;
 
   /* Fonts */
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -324,9 +324,13 @@ progress {
 }
 
 .SlideContent .Title .subtitle {
-  margin-top: 33%;
   font-size: 5vh;
-  color: violet;
+  color: steelblue;
+  margin: -3vh;
+}
+
+.SlideContent .Title .subtitle-red {
+  color: red;
 }
 
 .Slide .Title2 h1 {
@@ -625,7 +629,7 @@ progress {
 .Footer .slides {
   border-top: 1px solid red;
   font-weight: bold;
-  color: navy;
+  color: white;
   padding: 0.5vh 1vw;
   position: absolute;
   bottom: 0;
@@ -718,15 +722,15 @@ progress {
   display: none;
 }
 
-/* Hide HolyJS logo to bottom-right on title slides with speaker card */
+/* Hide CodeFest logo to bottom-right on title slides with speaker card */
 .Slide:has(.speaker-card)::after {
   display: none;
 }
 
 .speaker-card {
   position: absolute;
-  left: 7%;
-  top: 55.5%;
+  left: 17%;
+  top: 75%;
   display: flex;
   align-items: center;
   gap: 2vw;
@@ -737,7 +741,7 @@ progress {
   width: 18vh;
   height: 18vh;
   border-radius: 50%;
-  border: 7px solid #ff69b4;
+  border: 7px solid navy;
   object-fit: cover;
 }
 
@@ -753,7 +757,7 @@ progress {
 
 .Slide h1,
 .Slide h2 {
-  color: var(--holy-magenta);
+  color: var(--cf-pink);
   font-weight: 800;
   letter-spacing: -0.02em;
 }
@@ -771,7 +775,7 @@ progress {
 .Slide code {
   font-family: var(--font-mono);
   background: rgba(255, 255, 255, 0.03);
-  border-left: 3px solid var(--holy-cyan);
+  border-left: 3px solid var(--cf-blue);
 }
 
 .Slide > pre {
@@ -781,7 +785,7 @@ progress {
 }
 
 .accent-text {
-  color: var(--holy-cyan);
+  color: var(--cf-blue);
   text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
 }
 
@@ -804,32 +808,32 @@ progress {
   width: auto;
 }
 
-/* Mermaid dark theme overrides for HolyJS palette */
+/* Mermaid dark theme overrides for CodeFest palette */
 .Mermaid .node rect,
 .Mermaid .node circle,
 .Mermaid .node ellipse,
 .Mermaid .node polygon,
 .Mermaid .node path {
   fill: #1a1a2e !important;
-  stroke: var(--holy-cyan) !important;
+  stroke: var(--cf-blue) !important;
   stroke-width: 2px !important;
 }
 
 .Mermaid .node .label,
 .Mermaid .nodeLabel,
 .Mermaid .edgeLabel {
-  color: var(--holy-white) !important;
-  fill: var(--holy-white) !important;
+  color: var(--cf-white) !important;
+  fill: var(--cf-white) !important;
   font-family: var(--font-sans) !important;
 }
 
 .Mermaid .edge-thickness-normal {
-  stroke: var(--holy-cyan) !important;
+  stroke: var(--cf-blue) !important;
   stroke-width: 2px !important;
 }
 
 .Mermaid .edge-pattern-solid {
-  stroke: var(--holy-cyan) !important;
+  stroke: var(--cf-blue) !important;
 }
 
 .Mermaid .arrowheadPath {
@@ -838,12 +842,12 @@ progress {
 
 .Mermaid .cluster rect {
   fill: rgba(26, 26, 46, 0.5) !important;
-  stroke: var(--holy-magenta) !important;
+  stroke: var(--cf-pink) !important;
 }
 
 .Mermaid .label-container {
   fill: #1a1a2e !important;
-  stroke: var(--holy-cyan) !important;
+  stroke: var(--cf-blue) !important;
 }
 
 /* === STAR WARS CRAWL === */

@@ -137,6 +137,40 @@ class MySubAsyncClass extends MyAsyncClass {
 
 -----
 
+# А как в TypeScript?
+
+<div className='codemedium'>
+
+```typescript
+// Класс, конструктор которого возвращает Promise
+interface AsyncConstructor<T> extends NewableFunction {
+    new (...args: any[]): Promise<T>;
+}
+
+// MyPromise extends Promise — типизируется
+class MyPromise<T> extends Promise<T> {
+    constructor(executor: (
+        resolve: (value: T) => void,
+        reject: (reason?: any) => void
+    ) => void) {
+        super(executor);
+    }
+}
+
+// await new — тип выводится как T, не Promise<T>
+const item: number = await new MyPromise(
+    (resolve) => resolve(123)
+);
+```
+
+</div>
+
+<div className="slide-callout">
+<h3 className="secondary">constructor возвращает Promise&lt;T&gt; — await разворачивает до T</h3>
+</div>
+
+-----
+
 # Паттерн: <code className="inlineCode">await new</code>
 <Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 

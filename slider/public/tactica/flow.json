@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-05-11T21:58:29.930Z",
+  "generatedAt": "2026-05-12T09:09:10.910Z",
   "flow": {
     "window.keypress.Listener": [
       {
@@ -138,19 +138,19 @@
     ],
     "Error": [
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/components/Slide.tsx:11:9",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Slide.tsx:11:9",
         "kind": "instantiation",
         "code": "new Error(`some ${this.constructor.name} fail`)",
         "context": "new expression"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:364:11",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:364:11",
         "kind": "instantiation",
         "code": "new Error('index is not a number')",
         "context": "new expression"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:371:11",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:371:11",
         "kind": "instantiation",
         "code": "new Error('index is not valid')",
         "context": "new expression"
@@ -158,7 +158,7 @@
     ],
     "slideRenderer.Footer": [
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/components/Slide.tsx:34:18",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Slide.tsx:34:18",
         "kind": "instantiation",
         "code": "new slideRenderer.Footer(counters)",
         "context": "new expression"
@@ -166,27 +166,27 @@
     ],
     "slideRenderer.Progressor": [
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/components/Slide.tsx:39:22",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Slide.tsx:39:22",
         "kind": "instantiation",
         "code": "new slideRenderer.Progressor()",
         "context": "new expression"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/components/Slide.tsx:59:1",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Slide.tsx:59:1",
         "kind": "propertyWrite",
         "code": "Slide.prototype.View = function () {\n\t \n\tconst app = this;\n\tconst {\n\t\tSlideView\n\t} = app;\n\n\n\tthis.re",
         "propertyName": "View",
         "targetType": "slideRenderer.Progressor"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/components/Slide.tsx:59:1",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Slide.tsx:59:1",
         "kind": "propertyRead",
         "code": "Slide.prototype.View",
         "propertyName": "View",
         "targetType": "slideRenderer.Progressor"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/components/Slide.tsx:59:1",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Slide.tsx:59:1",
         "kind": "propertyRead",
         "code": "Slide.prototype",
         "propertyName": "prototype",
@@ -195,32 +195,32 @@
     ],
     "Date": [
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/components/Tactica/TypeFlow.tsx:104:17",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Tactica/TypeFlow.tsx:104:17",
         "kind": "instantiation",
         "code": "new Date(typeGraph.generatedAt)",
         "context": "new expression"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/components/MDX.tsx:65:45",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/MDX.tsx:65:45",
         "kind": "passAsArg",
         "code": "React.createElement(TypeFlow, { typeGraph, usages, ...props })",
         "targetType": "Date",
         "context": "arg 0 to createElement"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:672:54",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:672:54",
         "kind": "instantiation",
         "code": "new Date(instance.__timestamp__)",
         "context": "new expression"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:673:54",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:673:54",
         "kind": "instantiation",
         "code": "new Date(instance.parent().__timestamp__)",
         "context": "new expression"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:674:54",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:674:54",
         "kind": "instantiation",
         "code": "new Date(instance.parent().parent().__timestamp__)",
         "context": "new expression"
@@ -228,48 +228,48 @@
     ],
     "Snowflakes": [
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:196:20",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:196:20",
         "kind": "instantiation",
         "code": "new Snowflakes(snowflakesConfigWhite)",
         "context": "new expression"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:197:3",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:197:3",
         "kind": "methodCall",
         "code": "snowflakes.stop()",
         "propertyName": "stop",
         "targetType": "Snowflakes"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:197:3",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:197:3",
         "kind": "propertyRead",
         "code": "snowflakes.stop",
         "propertyName": "stop",
         "targetType": "Snowflakes"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:206:6",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:206:6",
         "kind": "methodCall",
         "code": "snowflakes.start()",
         "propertyName": "start",
         "targetType": "Snowflakes"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:206:6",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:206:6",
         "kind": "propertyRead",
         "code": "snowflakes.start",
         "propertyName": "start",
         "targetType": "Snowflakes"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:218:6",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:218:6",
         "kind": "methodCall",
         "code": "snowflakes.stop()",
         "propertyName": "stop",
         "targetType": "Snowflakes"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:218:6",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:218:6",
         "kind": "propertyRead",
         "code": "snowflakes.stop",
         "propertyName": "stop",
@@ -278,20 +278,20 @@
     ],
     "URLSearchParams": [
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:290:21",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:290:21",
         "kind": "instantiation",
         "code": "new URLSearchParams(window.location.search)",
         "context": "new expression"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:291:22",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:291:22",
         "kind": "methodCall",
         "code": "urlParams.get('slide')",
         "propertyName": "get",
         "targetType": "URLSearchParams"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:291:22",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:291:22",
         "kind": "propertyRead",
         "code": "urlParams.get",
         "propertyName": "get",
@@ -300,13 +300,13 @@
     ],
     "List.Slide": [
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:346:16",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:346:16",
         "kind": "instantiation",
         "code": "new this.Slide()",
         "context": "new expression"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:636:17",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/runner.ts:636:17",
         "kind": "instantiation",
         "code": "new slide.Slide()",
         "context": "new expression"
@@ -314,34 +314,34 @@
     ],
     "Set": [
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/postCreation.ts:77:23",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/postCreation.ts:77:23",
         "kind": "instantiation",
         "code": "new Set(collectConstructors(instance, true))",
         "context": "new expression"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/postCreation.ts:78:23",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/postCreation.ts:78:23",
         "kind": "methodCall",
         "code": "names.splice(0, 3)",
         "propertyName": "splice",
         "targetType": "Set"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/postCreation.ts:78:23",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/postCreation.ts:78:23",
         "kind": "propertyRead",
         "code": "names.splice",
         "propertyName": "splice",
         "targetType": "Set"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/postCreation.ts:79:52",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/postCreation.ts:79:52",
         "kind": "methodCall",
         "code": "names.splice(-1)",
         "propertyName": "splice",
         "targetType": "Set"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/postCreation.ts:79:52",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/postCreation.ts:79:52",
         "kind": "propertyRead",
         "code": "names.splice",
         "propertyName": "splice",

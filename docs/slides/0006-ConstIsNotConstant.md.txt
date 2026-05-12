@@ -95,6 +95,35 @@ console.log(prop + 0);   // 7 ?!?!?!?
 
 -----
 
+# А как в TypeScript?
+
+<div className='codemedium'>
+
+```typescript
+// Объект с живым getter'ом
+interface LiveNumber {
+    [Symbol.toPrimitive](hint: string): number;
+}
+
+interface MyObject {
+    get prop(): LiveNumber;
+}
+
+// Деструктуризация — тип НЕ number!
+const { prop } = myObject;  // type: LiveNumber
+
+// Приведение происходит только в контексте
+const sum: number = prop + 0;  // ok — toPrimitive сработает
+```
+
+</div>
+
+<div className="slide-callout">
+<h3 className="secondary">getter + Symbol.toPrimitive = тип, который ведёт себя как number</h3>
+</div>
+
+-----
+
 # production
 
 <Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>

@@ -12,14 +12,8 @@ Title.prototype.View = function () {
 		<div className="SlideContent">
 			<div className="Title" >
 				<h1>{title}</h1>
-
-				<div className="speaker-card">
-					<img className="speaker-photo" src="./content/avatar.png" alt="speaker" />
-					<div className="speaker-name">Виктор<br />Вершанский</div>
-				</div>
-
-				<h3 className="subtitle">{this.subtitle}</h3>
-
+				<h2 className="subtitle">{this.subtitle}</h2><br/><br/><br/>
+				<h3 className="subtitle subtitle-red">{this.caption}</h3>
 			</div>
 		</div >
 	);

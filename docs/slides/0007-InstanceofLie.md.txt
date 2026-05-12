@@ -87,6 +87,40 @@ console.log(baz instanceof foo);  // true
 
 -----
 
+# А как в TypeScript?
+
+<div className='codemedium'>
+
+```typescript
+// TS не знает про setPrototypeOf манипуляции
+declare const baz: object;
+
+// Правильный подход — branded types
+type FooInstance = {
+    __brand: 'FooInstance';
+    a: string;
+};
+
+interface FooConstructor extends NewableFunction {
+    new(): FooInstance;
+    prototype: FooInstance;
+    [Symbol.hasInstance](instance: unknown): boolean;
+}
+
+// instanceof можно типизировать
+function isFoo(x: unknown): x is FooInstance {
+    return x instanceof (FooCtor as any);
+}
+```
+
+</div>
+
+<div className="slide-callout">
+<h3 className="secondary"><code className="inlineCode">Symbol.hasInstance</code> — типизируемая точка входа для проверок</h3>
+</div>
+
+-----
+
 # факты: instanceof не проверяет тип
 
 <div className='codemedium'>
