@@ -371,6 +371,7 @@ progress {
   margin-left: 0.2vw;
   color: #ffffff;
   font-size: 5vh;
+  color: red;
 }
 
 .Slide h1.big {
@@ -562,6 +563,9 @@ progress {
 .SlideContent > h1:first-child {
   color: #ffffff;
   margin-left: 10vw;
+  margin-top: 0vh;
+  margin-bottom: 0vh;
+  padding-top: -3vh;
 }
 
 .ShiftTable {

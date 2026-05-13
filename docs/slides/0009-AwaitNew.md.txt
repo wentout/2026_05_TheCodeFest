@@ -142,21 +142,16 @@ class MySubAsyncClass extends MyAsyncClass {
 <div className='codemedium'>
 
 ```typescript
-// Класс, конструктор которого возвращает Promise
 interface AsyncConstructor<T> extends NewableFunction {
     new (...args: any[]): Promise<T>;
 }
-
-// MyPromise extends Promise — типизируется
 class MyPromise<T> extends Promise<T> {
     constructor(executor: (
-        resolve: (value: T) => void,
-        reject: (reason?: any) => void
+      resolve: (value: T) => void, reject: (reason?: any) => void
     ) => void) {
         super(executor);
     }
 }
-
 // await new — тип выводится как T, не Promise<T>
 const item: number = await new MyPromise(
     (resolve) => resolve(123)

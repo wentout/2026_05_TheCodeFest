@@ -81,5 +81,14 @@ type Config = {
 
 </div>
 
+-----
+
+# &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; пу пу пу ...
+
+<div>
+<Box sx={{textAlign: 'center'}}>
+<img src="./content/dip.png" style={{width: '67%', marginTop: '5vh', borderRadius: '2vh'}} />
+</Box>
+</div>
 
 -----

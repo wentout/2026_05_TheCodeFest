@@ -307,23 +307,19 @@ class MyInheritedItem extends re {
 <div className='codemedium'>
 
 ```typescript
+// self — это и экземпляр, и конструктор
+interface Self {
+    new (): Self;
+    value: number;
+}
 // Identity pattern: объект знает, как себя пересоздать
 interface Reconstructible<T> extends NewableFunction {
     new (...args: any[]): T & Reconstructible<T>;
     prototype: Reconstructible<T>;
 }
-
-// self — это и экземпляр, и конструктор
-interface Self {
-    (): Self;
-    new (): Self;
-    value: number;
-}
-
 // TS видит recursive тип
 const item: Self = new (Cstr as Reconstructible<Self>);
 const re: Self = new item;   // ok — item is constructible
-const fn: Self = item();     // ok — item is callable
 ```
 
 </div>

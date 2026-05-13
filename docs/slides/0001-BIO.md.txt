@@ -6,13 +6,16 @@
 <div style={{display: 'grid', gridTemplateColumns: '1.0fr 1.0fr', gap: '3vw', margin: '8vh 0 0 5vh', width: '92%'}}>
 
 <div>
-<Box sx={{textAlign: 'left', fontSize: '4vh', lineHeight: '9vh' }}>
+<Box sx={{textAlign: 'left', fontSize: '4vh', lineHeight: '7vh' }}>
 
 * Витя из Ростова-на-Дону
-* ему 45 годиков
-* из них 25 он пишет на JS
-* пришёл рассказать ...
-* просит понять и простить
+* с 1999 пишу на JS
+* основной стек Node.js
+* есть фотка с Ryan Dahl
+* есть фотка с Matteo Collina
+* принимал участие в Node Dwg
+* пишу proposals, общаюсь c TC39
+
 
 </Box>
 </div>
@@ -24,6 +27,11 @@
 </div>
 
 </div>
+
+-----
+
+# фотки !!!
+
 
 -----
 
@@ -39,14 +47,7 @@
 <img src="./content/ChillHouse.jpg" style={{width: '35vw', borderRadius: '3vh'}} />
 </div>
 </div>
+
 -----
-
-# &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; пу пу пу ...
-
-<div>
-<Box sx={{textAlign: 'center'}}>
-<img src="./content/dip.png" style={{width: '67%', marginTop: '5vh', borderRadius: '2vh'}} />
-</Box>
-</div>
 
 
