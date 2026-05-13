@@ -25,7 +25,7 @@ When a local development server is needed for this project:
 
 **Correct:**
 ```bash
-cd 2026_05_HolyJS/slider && npm run dev
+cd 2026_05_TheCodeFest/slider && npm run dev
 ```
 
 **Wrong (strictly forbidden):**
