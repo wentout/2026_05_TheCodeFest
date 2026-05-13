@@ -1,11 +1,12 @@
 {
-  "name": "2026_05_holyjs",
+  "name": "2026_05_CodeFest",
   "version": "1.0.0",
-  "description": "2026 HolyJS Spring Slides",
+  "description": "2026 Code Fest",
   "main": "index.js",
   "scripts": {
     "dev": "cd ./slider && npm run dev",
-    "build": "cd ./slider && npm run build",
+    "jekyl": "touch /code/talks/2026_05_TheCodeFest/docs/.nojekyll",
+    "build": "cd ./slider && npm run build && cd .. && npm run jekyl",
     "lint": "cd ./slider && npm run lint",
     "preview": "cd ./slider && npm run preview"
   },
@@ -20,9 +21,9 @@
   "author": "went.out@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wentout/2026_05_HolyJS/issues"
+    "url": "https://github.com/wentout/2026_05_TheCodeFest/issues"
   },
-  "homepage": "https://github.com/wentout/2026_05_HolyJS#readme",
+  "homepage": "https://github.com/wentout/2026_05_TheCodeFest#readme",
   "dependencies": {
     "jquery": "^3.7.1",
     "mdx-mermaid": "^2.0.3",

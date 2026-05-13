@@ -7,7 +7,7 @@
 			"fullPath": "List",
 			"properties": [],
 			"children": [],
-			"sourceFile": "/code/talks/2026_05_HolyJS/slider/src/models/List.ts",
+			"sourceFile": "/code/talks/2026_05_TheCodeFest/slider/src/models/List.ts",
 			"line": 36,
 			"column": 21
 		},
@@ -16,7 +16,7 @@
 			"fullPath": "Slide",
 			"properties": [],
 			"children": [],
-			"sourceFile": "/code/talks/2026_05_HolyJS/slider/src/models/List.ts",
+			"sourceFile": "/code/talks/2026_05_TheCodeFest/slider/src/models/List.ts",
 			"line": 50,
 			"column": 27
 		}

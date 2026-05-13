@@ -379,7 +379,7 @@ This will auto-generate `slides/list.txt`.
 [{
   "view": "Title",
   "title": "My Awesome Talk",
-  "subtitle": "HolyJS 2026"
+  "subtitle": "TheCodeFest 2026"
 },{
   "view": "Starter",
   "title": "About Me",
