@@ -1,24 +1,38 @@
-/* === LOCAL FONTS === */
+/* === CODEFEST FONTS === */
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/Inter-400.ttf') format('truetype');
+  src: url('/fonts/Montserrat-Regular.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/Inter-700.ttf') format('truetype');
+  src: url('/fonts/Montserrat-Bold.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 800;
   font-display: swap;
-  src: url('/fonts/Inter-800.ttf') format('truetype');
+  src: url('/fonts/Montserrat-ExtraBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Geologica';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/Geologica-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Geologica';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/Geologica-SemiBold.ttf') format('truetype');
 }
 @font-face {
   font-family: 'JetBrains Mono';
@@ -39,9 +53,9 @@
 }
 
 body {
-  background: var(--cf-bg, #0B1A3D);
+  background: var(--cf-bg, #001C3B);
   color: var(--cf-white, #FFFFFF);
-  font-family: var(--font-sans, 'Inter', system-ui, sans-serif);
+  font-family: var(--font-body, 'Geologica', system-ui, sans-serif);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -73,18 +87,18 @@ body {
   background: var(--cf-bg);
 }
 
-/* CodeFest logo */
+/* CodeFest logo — top right */
 .Slide::after {
   content: '';
   position: absolute;
   top: 3vh;
-  left: 3vw;
-  width: 14vw;
-  height: 8vh;
+  right: 3vw;
+  width: 10vw;
+  height: 6vh;
   background-image: url('/content/logo_codefest.svg');
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: left top;
+  background-position: right top;
   pointer-events: none;
   z-index: 10;
 }
@@ -113,30 +127,35 @@ body {
 
   /* Color roles — CodeFest semantic colors */
   --color-primary: white;        /* Main concept, Type */
-  --color-secondary: #A8D0E6;   /* Contrast, Interface — light blue from @ icon */
-  --color-accent: #E91E8C;      /* Success, validation — pink from WiFi icon */
-  --color-danger: #FF4D7A;      /* Errors, warnings — softer pink/red */
-  --color-muted: #8A9BB8;       /* Secondary text, asides */
+  --color-secondary: #33A3DC;   /* Contrast, Interface — light blue */
+  --color-accent: #FF3179;      /* Success, validation — pink */
+  --color-danger: #FF3179;      /* Errors, warnings — pink */
+  --color-muted: #595959;       /* Secondary text, asides */
   --color-text: #FFFFFF;        /* Default body text */
 
-  /* CodeFest Palette */
-  --cf-pink: #E91E8C;
-  --cf-blue: #A8D0E6;
-  --cf-bg: #0B1A3D;
+  /* CodeFest Palette (from PPTX template) */
+  --cf-pink: #FF3179;
+  --cf-blue: #33A3DC;
+  --cf-bg: #001C3B;
   --cf-white: #FFFFFF;
-  --cf-muted: #8A9BB8;
+  --cf-muted: #595959;
 
-  /* Fonts */
-  --font-sans: 'Inter', system-ui, sans-serif;
+  /* Fonts — CodeFest template */
+  --font-heading: 'Montserrat', 'Inter', system-ui, sans-serif;
+  --font-body: 'Geologica', 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Roboto Mono', monospace;
+  --font-sans: 'Geologica', 'Inter', system-ui, sans-serif;
 }
 
 /* === SLIDE TYPE CLASSES === */
 
 /* TitleSlide — chapter openers */
 .Slide .SlideContent h1.slide-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
   font-size: var(--title-md);
   color: var(--color-primary);
+  text-transform: uppercase;
   margin-top: var(--space-xl);
   text-align: center;
   margin-left: -11vw;
@@ -348,7 +367,7 @@ progress {
 
 .Slide .StarterSlide h1 {
   font-weight: 700;
-  font-size: 12vh;
+  font-size: 9vh;
   margin-top: 37vh;
   color: #ffffff;
 }
@@ -356,33 +375,40 @@ progress {
 .Slide .StarterSlide p {
   font-weight: 700;
   font-size: 5vh;
-  margin-left: 42vh;
+  margin-left: 32vw;
   color: orangered;
+  text-align: left;
 }
 
 .author {
   font-weight: 700;
   font-size: 3vh;
-  margin-left: 42vh;
+  margin-left: 22vw;
+  border-top: 1px solid red
 }
 
 
 .Slide h1 {
+  font-family: var(--font-heading);
+  font-weight: 800;
   margin-left: 0.2vw;
   color: #ffffff;
   font-size: 5vh;
-  color: red;
 }
 
 .Slide h1.big {
+  font-family: var(--font-heading);
+  font-weight: 800;
   margin-left: 0.2vw;
-  color: #d3d3e7;
+  color: #ffffff;
   font-size: 9vh;
 }
 
 .Slide h1.big2 {
+  font-family: var(--font-heading);
+  font-weight: 800;
   margin-left: 0.2vw;
-  color: #d3d3e7;
+  color: #ffffff;
   font-size: 7vh;
 }
 
@@ -471,7 +497,7 @@ progress {
   font-weight: bold;
   font-size: 2vh;
   top: 3vh;
-  right: 1vw;
+  left: 1vw;
   border: 1px solid orangered;
 } 
 

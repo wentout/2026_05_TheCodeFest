@@ -9,5 +9,23 @@
 		"title": "JavaScript",
 		"subtitle": "который мы потеряли",
 		"caption": "но это не точно"
+	},
+	{
+		"view": "Starter",
+		"title": "..."
+	},
+	{
+		"view": "Starter",
+		"title": "null is a 1B$ mistake",
+		"author": "Sir Charles Antony Richard Hoare"
+	},
+	{
+		"view": "Starter",
+		"title": "typeof null is another one",
+		"author": "JS co-author Brendan Eich"
+	},
+	{
+		"view": "Starter",
+		"title": "..."
 	}
 ]

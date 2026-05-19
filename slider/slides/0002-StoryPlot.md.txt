@@ -1,81 +1,54 @@
 
------
 
-<h1 className="slide-title">Types vs Interfaces</h1>
-
-<div className="slide-subtitle">
-<h2>эпичная битва игрушечных вещей</h2>
+<div className="slide-interstitial">
+<h1 style={{fontSize: '11vh'}}>... episodes ...</h1>
 </div>
+
 
 <h1 className="borderline">Ø</h1>
 
------
-
-<Box sx={{marginTop: '5vh', marginBottom: '20vh'}}>
-<div className="star-wars-container">
-  <div className="star-wars-crawl">
-    <div className="crawl-content">
-      <p className="crawl-line crawl-big">Типы или Интерфейсы ?</p>
-      <p className="crawl-line">на тех самых ненужОнных просторах</p>
-      <p className="crawl-line">ихни-их заблокированных интернетов</p>
-      <p className="crawl-line">в сообществах TypeScript 'изёров</p>
-      <p className="crawl-line crawl-big">бушует<br/> великая битва</p>
-      <p className="crawl-line">что лучше ?</p>
-      <p className="crawl-line"><br/></p>
-      <p className="crawl-line crawl-big">Типы</p>
-      <p className="crawl-line">или</p>
-      <p className="crawl-line crawl-big"> Интерфейсы</p>
-      <p className="crawl-line"><br/></p>
-      <p className="crawl-line">
-	  <img src="./content/in_fear.webp" style={{width: '75%', marginLeft: '7%', borderRadius: '15%'}} />
-	  </p>
-      <p className="crawl-line"><br/>если бы мы знали</p>
-      <p className="crawl-line"><br/>что такое &laquo; лучше &raquo; ...</p>
-    </div>
-  </div>
-</div>
-</Box>
-
 
 -----
 
-# раньше же рассказывал про подобное
-
-<img src="./content/img/girl_burns.jpeg" style={{position: 'absolute', top: '22vh', left:'20vw', zIndex: 100, width: '50vw', borderRadius: '9%'}} />
-
-
------
-
-# раньше же рассказывал про подобное
-
-<Box sx={{marginTop: '5vh'}}>
+<Box sx={{marginTop: '25vh'}}>
 <center>
-<h1 style={{marginLeft: '-12%', fontSize: '7vh'}}>... просто, есть ощущение  ...</h1>
+	<h1 style={{fontSize: '7vh', color: 'teal', lineHeight: '5vh'}}>если очень долго</h1>
 </center>
 </Box>
 
 -----
 
-# раньше же рассказывал про подобное
-
-<Box sx={{marginTop: '5vh'}}>
+<Box sx={{marginTop: '25vh'}}>
 <center>
-<h1 style={{marginLeft: '-12%', fontSize: '7vh'}}>... просто, есть ощущение  ...</h1>
-<h1 style={{fontSize: '9vh', color: 'teal'}}>нужно показать снова</h1>
+	<h1 style={{fontSize: '7vh', color: 'teal', lineHeight: '5vh'}}>если очень долго</h1>
+	<h1 style={{fontSize: '8vh', color: 'orange', lineHeight: '5vh'}}>смотреть на код</h1>
 </center>
 </Box>
 
 -----
 
-# раньше же рассказывал про подобное
+<Box sx={{marginTop: '25vh'}}>
+<center>
+	<h1 style={{fontSize: '7vh', color: 'teal', lineHeight: '5vh'}}>если очень долго</h1>
+	<h1 style={{fontSize: '8vh', color: 'orange', lineHeight: '5vh'}}>смотреть на код</h1>
+	<h1 style={{fontSize: '7vh', color: 'crimson', lineHeight: '5vh'}}>код станет смотреть на вас</h1>
+</center>
+</Box>
+
+
+
+-----
+
+# раньше уже рассказывал про подобное
 
 <Box sx={{marginTop: '5vh'}}>
 <center>
-<h1 style={{marginLeft: '-12%', fontSize: '7vh'}}>... просто, есть ощущение  ...</h1>
+<h1 style={{marginLeft: '-12%', fontSize: '7vh'}}>... но есть ощущение  ...</h1>
 </center>
 </Box>
 
 <img src="./content/img/Yes-You-Can.jpg" style={{marginLeft: '-5%', position: 'absolute', top: '37vh', left:'27vw', zIndex: 100, width: '45vw'}} />
+
 
 -----
 
@@ -102,34 +75,7 @@
 
 -----
 
-# хотя, на самом деле 
-
------
-
-# хотя, на самом деле 
-
-<Box sx={{marginTop: '5vh'}}>
-<center>
-<h1 style={{fontSize: '7vh', color: 'teal', marginLeft: '-15vw'}}>... есть новые примеры   ...</h1>
-</center>
-</Box>
-
------
-
-# хотя, на самом деле 
-
-<Box sx={{marginTop: '5vh'}}>
-<center>
-<h1 style={{fontSize: '7vh', color: 'teal', marginLeft: '-15vw'}}>... есть новые примеры   ...</h1>
-<div style={{transform: 'rotate(55deg)'}}>
-<h1 style={{fontSize: '5vh', color: 'teal'}}> ↑</h1>
-<h1 style={{fontSize: '11vh', color: 'teal'}}> ← <span style={{color:'violet'}}>;^)</span>  →</h1>
-<h1 style={{fontSize: '5vh', color: 'teal'}}> ↓</h1>
-</div>
-</center>
-</Box>
-
------
+# ...
 
 -----
 
@@ -140,55 +86,38 @@
 <h1 className="borderline">-1</h1>
 
 
------
-# задам вопросы аудитории : 
 
 -----
 # задам вопросы аудитории : 
-
-<Box sx={{marginTop: '7vh', marginLeft: '10vw'}}>
-<h1 style={{fontSize: '5vh', color: 'green'}}>Масса JavaScript'изёров ?</h1>
-</Box>
 
 -----
 # задам вопросы аудитории : 
 
 <Box sx={{marginTop: '7vh', marginLeft: '10vw'}}>
-<h1 style={{fontSize: '5vh', color: 'green'}}>Масса JavaScript'изёров ?</h1>
-<h1 style={{fontSize: '6vh'}}>Их AI уже кодит JavaScript ?</h1>
+<h1 style={{fontSize: '5vh', color: 'green'}}>Часто ли вы сталкиваетесь с JavaScript?</h1>
 </Box>
 
 -----
 # задам вопросы аудитории : 
 
 <Box sx={{marginTop: '7vh', marginLeft: '10vw'}}>
-<h1 style={{fontSize: '5vh', color: 'green'}}>Масса JavaScript'изёров ?</h1>
-<h1 style={{fontSize: '6vh'}}>Их AI уже кодит JavaScript ?</h1>
-<h1 style={{fontSize: '7vh', color: 'teal'}}>А кто всё ещё &laquo;сам решает&raquo;,<br/> что знает JavaScript ?</h1>
+<h1 style={{fontSize: '5vh', color: 'green'}}>Часто ли вы сталкиваетесь с JavaScript?</h1>
+<h1 style={{fontSize: '6vh'}}>Ваш AI уже умеет в JavaScript ?</h1>
 </Box>
 
 -----
+# задам вопросы аудитории : 
 
-# часто думаете переделать ?
-
-<img src="./content/vitya.png" style={{position: 'absolute', top: '22vh', left:'12vw', zIndex: 100, width: '50vw'}} />
-
-
------
-
-# мы помним, что в JS всё объекты
-
-<Box>
-<center>
-<img src="./content/img/JS_Object_Topology.svg"  style={{width: '78%'}} />
-</center>
+<Box sx={{marginTop: '7vh', marginLeft: '10vw'}}>
+<h1 style={{fontSize: '5vh', color: 'green'}}>Часто ли вы сталкиваетесь с JavaScript?</h1>
+<h1 style={{fontSize: '6vh'}}>Ваш AI уже умеет в JavaScript ?</h1>
+<h1 style={{fontSize: '7vh', color: 'teal'}}>Или ваши агенты &laquo;сам решили&raquo;,<br/> что знают JavaScript ?</h1>
 </Box>
-
 
 -----
 
 <Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
-	Вспомним, это было: 4 декабря 1995<br/>
+	4 декабря 1995, дата рождения JavaScript<br/>
 	<br/>
 	У более развитых языков было наследование на классах.<br/>
 	Но прототипы — гораздо более простой паттерн.<br/>
@@ -200,7 +129,7 @@
 -----
 
 <Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
-	Вспомним, это было: 4 декабря 1995<br/>
+	4 декабря 1995, дата рождения JavaScript<br/>
 	<br/>
 	У более развитых языков было наследование на классах.<br/>
 	Но прототипы — гораздо более простой паттерн.<br/>
@@ -216,7 +145,7 @@
 [{"snowflakes":true}]
 
 <Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
-	Вспомним, это было: 4 декабря 1995<br/>
+	4 декабря 1995, дата рождения JavaScript<br/>
 	<br/>
 	У более развитых языков было наследование на классах.<br/>
 	Но прототипы — гораздо более простой паттерн.<br/>
@@ -230,3 +159,51 @@
 </center>
 
 -----
+
+# в JS всё объекты
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<img src="./content/img/JS_Object_Topology.svg" style={{width: '78%'}} />
+</center>
+</Box>
+
+-----
+
+# Насколько глубока Кроличья Нора ?
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">
+<img src="./content/img/PrototypeChain.png"  style={{width: '70vw'}} />
+</a>
+</center>
+</Box>
+
+<Button onClick={() => { runExample('PrototypeChainDeepnessTest')}}>Run Me</Button>
+
+
+-----
+
+# в общем тут ...
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h1 style={{fontSize: '7vh', color: 'teal', marginLeft: '-15vw'}}>... есть новые примеры   ...</h1>
+</center>
+</Box>
+
+-----
+
+# в общем тут ...
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h1 style={{fontSize: '7vh', color: 'teal', marginLeft: '-15vw'}}>... есть новые примеры   ...</h1>
+<div style={{transform: 'rotate(55deg)'}}>
+<h1 style={{fontSize: '5vh', color: 'teal'}}> ↑</h1>
+<h1 style={{fontSize: '11vh', color: 'teal'}}> ← <span style={{color:'violet'}}>;^)</span>  →</h1>
+<h1 style={{fontSize: '5vh', color: 'teal'}}> ↓</h1>
+</div>
+</center>
+</Box>

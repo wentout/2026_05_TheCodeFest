@@ -62,8 +62,12 @@ export default function () {
 		}
 	}, { passive : true });
 
-	// Tap on screen halves
+	// Tap on screen halves (skip buttons/inputs)
 	window.document.addEventListener('click', (e) => {
+		const target = e.target as HTMLElement;
+		if (target.closest('button, input, textarea, select, a, [role="button"]')) {
+			return;
+		}
 		const width = window.innerWidth;
 		const x = e.clientX;
 		if (x > width * 0.7) {

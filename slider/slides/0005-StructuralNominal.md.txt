@@ -1,0 +1,321 @@
+
+
+<h1 className="slide-title">NewableFunction<br/>и прототипы</h1>
+
+<h1 className="borderline">5</h1>
+
+-----
+
+# Структурная (type) vs Номинальная (interface)
+
+<div className='codemedium'>
+
+```typescript
+// напомню основные концепции, типизация бывает
+// Структурная (обычная): одинаковая структура == одинаковый тип
+type Point  = { x: number; y: number };
+type Coord  = { x: number; y: number };
+// Point ≡ Coord  ✓  (структурно эквивалентны)
+
+// Номинальная (мудрёная): разные имена === разные типы
+interface IPoint { x: number; y: number; }
+interface ICoord { x: number; y: number; }
+// IPoint ≢ ICoord  ✗  (номинально различны)
+```
+
+</div>
+
+<div className="slide-callout">
+<h3 className="secondary">type — математика множеств<br/> interface — имена классов</h3>
+</div>
+
+-----
+
+# и мы хотим добавить Тип в Интерфейс
+
+<div className='codemedium'>
+```javascript
+// в стилистике 1995, но сейчас так тоже можно
+var TheConstructor = function () {
+	this; // type of TheConstructor.prototype
+};
+var existingPOJO = { previous: true };
+Object.assign(
+    TheConstructor.prototype, existingPOJO
+);
+// typeof existingPOJO & typeof InstanceType<TheConstructor>
+var instance = new TheConstructor; 
+```
+</div>
+
+<div className="slide-callout">
+<h3 className="secondary">для вывода типа instance<br/>нужно объединить существующие типы</h3>
+</div>
+
+-----
+
+# и мы хотим добавить Тип в Интерфейс
+
+<div className='codemedium'>
+```javascript
+// на "современный" лад почти ничем не отличается
+const TheConstructor = function () {
+	this; // type of TheConstructor.prototype
+};
+const existingPOJO = { previous: true };
+Object.assign(
+    TheConstructor.prototype, existingPOJO
+);
+// typeof existingPOJO & typeof InstanceType<TheConstructor>
+const instance = new TheConstructor; 
+```
+</div>
+
+<div className="slide-callout">
+<h3 className="secondary">для вывода типа instance<br/>нужно объединить существующие типы</h3>
+</div>
+
+
+-----
+
+# но: подход Intersection не работает 
+
+<div className='codemedium'>
+
+```typescript
+// Наивное пересечение по перекрывающимся ключам :
+
+type A = { x: 1 };
+type B = { x: 2 };
+// пытаемся объяснить, что нам нужно
+type AB = A & B;  // { x: never }  ← КОНФЛИКТ!
+
+// TypeScript intersection требует оба значения сразу
+// Но цепочки прототипов не сливаются — 
+//    они ПЕРЕОПРЕДЕЛЯЮТ ...
+```
+
+</div>
+
+<div className="slide-callout">
+<h3>A & B по перекрывающимся ключам даёт never</h3>
+</div>
+
+-----
+
+# но: подход Intersection не работает 
+
+<div className='codemedium'>
+
+```typescript
+// Наивное пересечение по перекрывающимся ключам :
+
+type A = { x: 1 };
+type B = { x: 2 };
+// но увидев это больше не пытаемся объяснить ...
+type AB = A & B;  // { x: never }  ← КОНФЛИКТ!
+
+// TypeScript intersection требует оба значения сразу.
+// Но цепочки прототипов не сливаются — 
+//    они ПЕРЕОПРЕДЕЛЯЮТ !!!
+```
+
+</div>
+
+<div className="slide-callout">
+<h3 className="danger">Потому, что Наследование совсем работает Иначе !</h3>
+</div>
+
+-----
+
+# Паттерн Proto: Pick + Exclude
+
+<div className='codemedium'>
+
+```typescript
+// Корректно моделирует наследование цепочки:
+export type Proto<P extends object, T extends object>
+ = T & Pick<P, Exclude<keyof P, keyof T>>;
+// Родитель: x == 1, Потомок переопределяет на x == 2
+type Parent = { x: 1; y: 'a' };
+type Child  = { x: 2 };
+type Result = Proto<Parent, Child>;
+// Result = { x: 2 } & Pick<Parent, 'y'>
+// Result = { x: 2; y: 'a' }  ← Потомок ПОБЕЖДАЕТ!
+```
+</div>
+
+<div className="slide-callout">
+<h2 style={{color: 'gray'}}>где <code className="inlineCode">P</code> - это <code className="inlineCode">prototype</code>,
+ a <code className="inlineCode">T</code> - actual <code className="inlineCode">type</code></h2>
+</div>
+
+-----
+
+# interface НЕ МОЖЕТ это выразить
+
+<div className='codemedium'>
+
+```typescript
+interface Parent {
+    x: 1;
+}
+// Interface 'Child' incorrectly extends interface 'Parent'.
+//  Types of property 'x' are incompatible.
+//    Type '2' is not assignable to type '1'.
+interface Child extends Parent {
+    x: 2;  // Ошибка: x уже объявлен в Parent
+} // т.к. interface extends - это "номинальная" проверка
+```
+
+</div>
+
+<div className="slide-callout">
+<h3 className="secondary"><code className="inlineCode">interface extends</code> заставляет потомка быть совместимым с родителем</h3>
+</div>
+
+-----
+
+# interface НЕ МОЖЕТ это выразить
+
+<div className='codemedium'>
+
+```typescript
+// Interface требует совместимости:
+interface Child extends Parent {
+    // Ошибка: x уже объявлен в Parent
+    x: 2;
+}
+// Но type с паттерном Proto МОЖЕТ:
+type Child = Proto<Parent, { x: 2 }>;
+// ✓  { x: 2; ... }
+// type & Pick/Exclude = структурное переопределение
+
+```
+
+</div>
+
+<div className="slide-callout">
+<h2 className="secondary">тип позволяет исключить свойства из потомка</h2>
+<h3 className="secondary"><code className="inlineCode">interface extends</code> заставляет их быть совместимыми</h3>
+</div>
+
+-----
+
+# подробно про это я рассказывал в 2023
+
+<Box>
+<center>
+<img src="./content/download.png" style={{width: '78%', border: '1px solid white'}} />
+</center>
+</Box>
+
+
+-----
+
+# Почему тип МОЖЕТ это выразить
+
+<div className='codemedium'>
+
+```typescript
+// Корректно моделирует наследование цепочки:
+export type Proto<P extends object, T extends object>
+ = T & Pick<P, Exclude<keyof P, keyof T>>;
+
+// Родитель: x == 1, Потомок переопределяет на x == 2
+type Parent = { x: 1; y: 'a' };
+type Child  = { x: 2 };
+type Result = Proto<Parent, Child>;
+// Result = { x: 2 } & Pick<Parent, 'y'>
+// Result = { x: 2; y: 'a' }  ← Потомок ПОБЕЖДАЕТ!
+```
+
+</div>
+
+<div className="slide-callout">
+<h3 className="primary">Потому, что <code className="inlineCode">type</code> может создать ПЕРЕОПРЕДЕЛЕНИЕ</h3>
+</div>
+
+-----
+
+# Почему тип МОЖЕТ это выразить
+
+<div className='codemedium'>
+
+```typescript
+// Алгебра типов TypeScript:
+type Instance = 
+        Proto<Base, Proto<Extension, Override>>;
+
+// JavaScript runtime:
+const instance = Object.setPrototypeOf(
+    Override,
+    Object.setPrototypeOf(Extension, Base)
+);
+instance.x;  // ближайшее побеждает!
+```
+
+</div>
+
+<div className="slide-callout">
+<h2 className="primary"><code className="inlineCode">type</code> &laquo; может в это &raquo;
+ через : <code className="inlineCode">Pick + Exclude + &</code></h2>
+</div>
+
+
+-----
+
+# В общем &laquo; такой себе &raquo; Proto-Chain
+
+<div className='codemedium'>
+
+```typescript
+// Корректно моделирует наследование цепочки:
+export type Proto<P extends object, T extends object>
+ = T & Pick<P, Exclude<keyof P, keyof T>>;
+
+// Родитель: x == 1, Потомок переопределяет на x == 2
+type Parent = { x: 1; y: 'a' };
+type Child  = { x: 2 };
+type Result = Proto<Parent, Child>;
+// Result = { x: 2 } & Pick<Parent, 'y'>
+// Result = { x: 2; y: 'a' }  ← Потомок ПОБЕЖДАЕТ!
+```
+
+</div>
+
+<div className="slide-callout">
+<h3 className="primary">как закат солнца &laquo; вручную &raquo; через педальный привод</h3>
+</div>
+
+-----
+
+# и это хорошо работает с extends
+
+<div className='codemedium'>
+
+```typescript
+// Без extends — прототип "захардкожен" в NewableFunction
+interface BadCtor extends NewableFunction {
+    // prototype: any  ← из родителя, не переопредишь!
+}
+
+// С extends + пересечением — контроль над цепочкой:
+interface GoodCtor extends NewableFunction {
+    prototype: Proto<Base, Extension>;
+}
+
+Proto<T,P> = P & Pick<T, Exclude<keyof T, keyof P>>
+```
+
+</div>
+
+-----
+
+# &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; такие дела ...
+
+<div>
+<Box sx={{textAlign: 'center'}}>
+<img src="./content/dip.png" style={{width: '67%', marginTop: '5vh', borderRadius: '2vh'}} />
+</Box>
+</div>
