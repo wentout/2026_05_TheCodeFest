@@ -1,6 +1,21 @@
 import React from 'react';
 import { ThemeUIProvider } from 'theme-ui';
-import { dark } from '@theme-ui/presets';
+
+const cfTheme = {
+	colors: {
+		text: '#FFFFFF',
+		background: '#001C3B',
+		primary: '#33A3DC',
+		secondary: '#FF3179',
+		muted: '#6C8AAB',
+		highlight: '#FF3179',
+	},
+	fonts: {
+		body: "'Geologica', 'Inter', system-ui, sans-serif",
+		heading: "'Montserrat', 'Inter', system-ui, sans-serif",
+		monospace: "'JetBrains Mono', 'Roboto Mono', ui-monospace, monospace",
+	},
+};
 
 const Slide = function () {
 	// eslint-disable-next-line @typescript-eslint/no-this-alias
@@ -66,7 +81,7 @@ Slide.prototype.View = function () {
 
 	this.reactRoot.render(
 		<React.StrictMode>
-			<ThemeUIProvider theme={dark}>
+			<ThemeUIProvider theme={cfTheme}>
 				<div className="Slide" >
 					<SlideView />
 				</div>

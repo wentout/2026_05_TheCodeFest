@@ -1,0 +1,172 @@
+
+<div className="divider">
+  <div className="numeral">3</div>
+  <div className="meta">
+    <div className="label">part · three</div>
+    <div className="name">Type + <em>Interface</em></div>
+    <div className="desc">Может ли Тип (POJO) вести себя как Интерфейс? Может — через прототип.</div>
+  </div>
+</div>
+
+-----
+
+<h1 className="h1"><em>POJO</em> с прототипом</h1>
+
+<div className="code">
+```javascript
+// POJO — обычный объект (Type)
+const someObject = {
+    name: 'myType',
+    createdAt: new Date()
+};
+// Но мы можем добавить Interface!
+Object.setPrototypeOf(someObject, {
+    describe () {
+        return `Type ${this.name} created at ${this.createdAt}`;
+    }
+});
+console.log(someObject.describe());  // работает!
+```
+</div>
+
+<div className="callout">
+  <div className="lead">Тип получил Интерфейс через <span className="pink">прототип!</span></div>
+</div>
+
+-----
+
+<h1 className="h1"><em>Тот же</em> результат через Constructor</h1>
+
+<div className="code">
+```javascript
+// Constructor — это Interface
+function Interface(name) {
+    this.name = name;
+    this.createdAt = new Date();
+}
+// но мы можем добавить тип
+Interface.prototype.describe = function() {
+    return `Interface ${this.name} created at ${this.createdAt}`;
+};
+const myInstance = new Interface('MyInterface');
+console.log(myInstance.describe());  // тот же результат!
+```
+</div>
+
+<div className="callout">
+  <div className="lead"><code className="ic">POJO</code> + <code className="ic">setPrototypeOf</code> === <code className="ic">new Constructor</code></div>
+</div>
+
+-----
+
+<h1 className="h1"><em>Тот же</em> результат через Constructor</h1>
+
+<div className="code">
+```javascript
+// Constructor — это Interface
+function Interface(name) {
+    this.name = name;
+    this.createdAt = new Date();
+}
+// но мы можем добавить тип
+Interface.prototype.describe = function() {
+    return `Interface ${this.name} created at ${this.createdAt}`;
+};
+const myInstance = new Interface('MyInterface');
+console.log(myInstance.describe());  // тот же результат!
+```
+</div>
+
+<Button onClick={() => { runExample('types_vs_interface')}} className="run-me">Run Me</Button>
+
+<div className="callout">
+  <div className="lead"><span className="cyan">Type</span> + <span className="pink">Interface</span> === Instance с поведением</div>
+</div>
+
+-----
+
+<h1 className="h1">а <em>как в TypeScript?</em></h1>
+
+<div className="code">
+```typescript
+type MyType = {
+    name: string;
+    createdAt: Date;
+};
+interface MyInterface {
+    describe(): string;
+}
+type MyInstance = MyType & MyInterface;
+interface MyCtor extends NewableFunction {
+    new(name: string): MyInstance;
+    prototype: MyInterface;
+}
+```
+</div>
+
+<div className="callout">
+  <div className="lead">Тип — структура, Интерфейс — поведение, <code className="ic">&</code> — объединение</div>
+</div>
+
+-----
+
+<h1 className="h1">а <em>как в TypeScript</em> ...</h1>
+
+<div className="img-frame bleed" style={{maxWidth:'1500px',margin:'0 auto'}}>
+  <img src="./content/type_and_interface.png" alt="тип и интерфейс" />
+</div>
+
+-----
+
+<h1 className="h1"><em>NewableFunction</em> в TS?</h1>
+
+<div className="code">
+```typescript
+// Встроенный тип TS — НЕ для прямого использования!
+interface NewableFunction {
+    new (...args: any[]): any;
+    prototype: any;
+}
+
+// НЕЛЬЗЯ: просто присвоить — потеряем прототип
+const ctor: NewableFunction = function() {};
+// ctor.prototype — any, не расширяется!
+```
+</div>
+
+<div className="callout pink">
+  <div className="lead"><code className="ic">NewableFunction</code> — интерфейс-заглушка, не тип для конструкторов</div>
+</div>
+
+-----
+
+<h1 className="h1"><em>extends</em> NewableFunction</h1>
+
+<div className="code">
+```typescript
+// Declaration merging + extends = работающий прототип
+interface MyConstructor extends NewableFunction {
+    new (): MyInstance;
+    prototype: MyProto;
+}
+
+// Теперь можем типизировать:
+interface MyProto {
+    shared: string;
+}
+interface MyInstance extends MyProto {
+    own: number;
+}
+```
+</div>
+
+<div className="callout">
+  <div className="lead"><code className="ic">extends</code> активирует declaration merging для <span className="pink">прототипа</span></div>
+</div>
+
+-----
+
+<div className="dip-wrap">
+  <div className="caption">. . . пу пу пу . . .</div>
+  <img src="./content/dip.png" alt="пингвин" />
+</div>

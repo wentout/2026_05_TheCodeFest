@@ -1,0 +1,152 @@
+
+<div className="divider">
+  <div className="numeral">2</div>
+  <div className="meta">
+    <div className="label">part · two</div>
+    <div className="name"><em>нюансы</em></div>
+    <div className="desc">Типы или Интерфейсы? В TypeScript — почти одно и то же. В JavaScript runtime — и вовсе одно.</div>
+  </div>
+</div>
+
+-----
+
+<h1 className="h1"><em>нюансы</em></h1>
+
+<div className="crawl">
+  <div className="crawl-inner">
+    <p className="big">Типы или Интерфейсы ?</p>
+    <p>на тех самых ненужОнных просторах</p>
+    <p>ихни-их заблокированных интернетов</p>
+    <p>в сообществах TypeScript 'изёров</p>
+    <p className="big">бушует<br/> великая битва</p>
+    <p>что лучше ?</p>
+    <p className="gap"></p>
+    <p className="big">Типы</p>
+    <p>или</p>
+    <p className="big"> Интерфейсы</p>
+    <p className="gap"></p>
+    <p><img src="./content/in_fear.webp" style={{width:'75%',marginLeft:'7%',borderRadius:'15%'}} /></p>
+    <p className="gap"></p>
+    <p>если бы мы знали</p>
+    <p className="gap"></p>
+    <p>что такое « лучше » ...</p>
+  </div>
+</div>
+
+-----
+
+<h1 className="h1">TS docs: <em>«стилистический выбор»</em></h1>
+
+<div className="code code-sm">
+```typescript
+// как описывать объекты в TS ?
+// В TS оба варианта почти эквивалентны:
+interface Point { x: number; y: number; }
+type Point = { x: number; y: number; };
+
+// Интерфейс может описывать функцию:
+interface MyFn { (): void; }
+// и Тип может описывать функцию:
+type MyFn = () => void;
+```
+</div>
+
+<div className="callout">
+  <div className="lead">и если в TypeScript разница минимальна</div>
+  <div className="sub">то в JavaScript runtime она вообще <span className="pink">исчезает!</span></div>
+</div>
+
+-----
+
+<h1 className="h1">Тип — это <em>ЧТО</em>, Интерфейс — <em>контракт</em></h1>
+
+<div className="split" style={{marginTop:'40px'}}>
+  <div className="card">
+    <div className="badge">📦 ТИП ( Структура )</div>
+    <h3 style={{color:'var(--cyan)'}}>ответ на вопрос «ЧТО?»</h3>
+    <ul>
+      <li>Какая структура? Какие поля?</li>
+      <li>Какой тип значения?</li>
+      <li>Описывает данные, не поведение.</li>
+    </ul>
+    <div className="footer-note"><em>Описывает Структуру: ЧТО ЭТО ТАКОЕ</em></div>
+  </div>
+  <div className="card alt">
+    <div className="badge">🔄 ИНТЕРФЕЙС ( Алгоритм )</div>
+    <h3 style={{color:'var(--pink)'}}>контракт «До и После»</h3>
+    <ul>
+      <li>«До» — что нужно для создания</li>
+      <li>«После» — что получится в результате</li>
+      <li>Объясняет трансформацию из Типа в Тип</li>
+    </ul>
+    <div className="footer-note"><em>Описывает Поведение: КАК ОНО СЕБЯ ВЕДЁТ</em></div>
+  </div>
+</div>
+
+-----
+
+<h1 className="h1"><em>Пример</em> различия</h1>
+
+<div className="code code-sm">
+```typescript
+// Interface содержит в себе и "до" и "после":
+interface Factory {
+    // " до " : с какой сущностью
+    new (config: Config): Instance;
+    // " после " : что можем делать
+    create (): Product;
+}
+// Type — просто описание структуры сущности:
+type Config = {
+    name: string;
+    count: number;
+};
+```
+</div>
+
+-----
+
+<h1 className="h1">Interface <em>VS</em> Type</h1>
+
+<div className="split" style={{marginTop:'30px'}}>
+  <div className="card">
+    <div className="badge">📦 TYPE</div>
+    <ul>
+      <li>✓ POJO — { a: 1, b: 2 }</li>
+      <li>✓ Primitives — number, string</li>
+      <li>✓ Array/Map — коллекция</li>
+      <li>✓ Instance Data — this.* свойства</li>
+      <li>✓ Frozen/Sealed объекты</li>
+      <li>✓ JSON-serializable</li>
+    </ul>
+  </div>
+  <div className="card alt">
+    <div className="badge">🔄 INTERFACE</div>
+    <ul>
+      <li>✓ Constructors — создают экземпляры</li>
+      <li>✓ Functions — трансформируют данные</li>
+      <li>✓ Methods — оперируют с this</li>
+      <li>✓ Getters — динамический доступ</li>
+      <li>✓ Operators — instanceof, etc.</li>
+      <li>✓ Symbol.toPrimitive — приведение типов</li>
+    </ul>
+  </div>
+</div>
+
+-----
+
+<h1 className="h1">если <em>совсем упрощать</em></h1>
+
+<div className="interstitial" style={{marginTop:'-30px'}}>
+  <div className="big" style={{fontSize:'160px'}}><span className="cyan">Constructor,<br/>Function, Method</span></div>
+  <div className="label" style={{fontSize:'32px',color:'var(--ink-2)'}}>→ это Интерфейс</div>
+  <div className="big" style={{fontSize:'160px',marginTop:'40px'}}><span className="pink">а всё остальное</span></div>
+  <div className="label" style={{fontSize:'32px',color:'var(--ink-2)'}}>→ это Тип</div>
+</div>
+
+-----
+
+<div className="dip-wrap">
+  <div className="caption">. . . вот как-то так . . .</div>
+  <img src="./content/dip.png" alt="пингвин" />
+</div>

@@ -1,209 +1,205 @@
 
-
-<div className="slide-interstitial">
-<h1 style={{fontSize: '11vh'}}>... episodes ...</h1>
-</div>
-
-
-<h1 className="borderline">Ø</h1>
-
-
------
-
-<Box sx={{marginTop: '25vh'}}>
-<center>
-	<h1 style={{fontSize: '7vh', color: 'teal', lineHeight: '5vh'}}>если очень долго</h1>
-</center>
-</Box>
-
------
-
-<Box sx={{marginTop: '25vh'}}>
-<center>
-	<h1 style={{fontSize: '7vh', color: 'teal', lineHeight: '5vh'}}>если очень долго</h1>
-	<h1 style={{fontSize: '8vh', color: 'orange', lineHeight: '5vh'}}>смотреть на код</h1>
-</center>
-</Box>
-
------
-
-<Box sx={{marginTop: '25vh'}}>
-<center>
-	<h1 style={{fontSize: '7vh', color: 'teal', lineHeight: '5vh'}}>если очень долго</h1>
-	<h1 style={{fontSize: '8vh', color: 'orange', lineHeight: '5vh'}}>смотреть на код</h1>
-	<h1 style={{fontSize: '7vh', color: 'crimson', lineHeight: '5vh'}}>код станет смотреть на вас</h1>
-</center>
-</Box>
-
-
-
------
-
-# раньше уже рассказывал про подобное
-
-<Box sx={{marginTop: '5vh'}}>
-<center>
-<h1 style={{marginLeft: '-12%', fontSize: '7vh'}}>... но есть ощущение  ...</h1>
-</center>
-</Box>
-
-<img src="./content/img/Yes-You-Can.jpg" style={{marginLeft: '-5%', position: 'absolute', top: '37vh', left:'27vw', zIndex: 100, width: '45vw'}} />
-
-
------
-
-<div className="slide-interstitial">
-<h1 style={{fontSize: '15vh', color: 'darkslateblue'}}> почему ? </h1>
+<div className="divider">
+  <div className="numeral">Ø</div>
+  <div className="meta">
+    <div className="label">part · zero</div>
+    <div className="name"><em>эпизоды</em></div>
+    <div className="desc">несколько коротких историй, прежде чем мы доберёмся до прототипов, типов и интерфейсов.</div>
+  </div>
 </div>
 
 -----
 
-# мне нравятся эти два слайда
-
-<Box>
-<img src="./content/img/poly_struct.svg"  style={{width: '85%', marginLeft: '7%'}} />
-</Box>
-
-
------
-
-# мне нравятся эти два слайда
-
-<Box>
-<img src="./content/img/poly_red.svg"  style={{width: '85%', marginLeft: '7%'}} />
-</Box>
-
------
-
-# ...
-
------
-
-<div className="slide-interstitial">
-<h1 style={{fontSize: '11vh'}}>... snowflakes ...</h1>
+<div className="poem">
+  <div className="ln cyan on">если очень долго</div>
+  <div className="ln ink">смотреть на код</div>
+  <div className="ln pink">код станет смотреть на вас</div>
 </div>
 
-<h1 className="borderline">-1</h1>
-
-
-
------
-# задам вопросы аудитории : 
-
------
-# задам вопросы аудитории : 
-
-<Box sx={{marginTop: '7vh', marginLeft: '10vw'}}>
-<h1 style={{fontSize: '5vh', color: 'green'}}>Часто ли вы сталкиваетесь с JavaScript?</h1>
-</Box>
-
------
-# задам вопросы аудитории : 
-
-<Box sx={{marginTop: '7vh', marginLeft: '10vw'}}>
-<h1 style={{fontSize: '5vh', color: 'green'}}>Часто ли вы сталкиваетесь с JavaScript?</h1>
-<h1 style={{fontSize: '6vh'}}>Ваш AI уже умеет в JavaScript ?</h1>
-</Box>
-
------
-# задам вопросы аудитории : 
-
-<Box sx={{marginTop: '7vh', marginLeft: '10vw'}}>
-<h1 style={{fontSize: '5vh', color: 'green'}}>Часто ли вы сталкиваетесь с JavaScript?</h1>
-<h1 style={{fontSize: '6vh'}}>Ваш AI уже умеет в JavaScript ?</h1>
-<h1 style={{fontSize: '7vh', color: 'teal'}}>Или ваши агенты &laquo;сам решили&raquo;,<br/> что знают JavaScript ?</h1>
-</Box>
-
 -----
 
-<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
-	4 декабря 1995, дата рождения JavaScript<br/>
-	<br/>
-	У более развитых языков было наследование на классах.<br/>
-	Но прототипы — гораздо более простой паттерн.<br/>
-	Просто положи что-нибудь в <code className="inlineCode">Constructor.prototype</code>.<br/>
-	И всё — это будет унаследовано.<br/>
-	<br/>
-</Box>
-
------
-
-<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
-	4 декабря 1995, дата рождения JavaScript<br/>
-	<br/>
-	У более развитых языков было наследование на классах.<br/>
-	Но прототипы — гораздо более простой паттерн.<br/>
-	Просто положи что-нибудь в <code className="inlineCode">Constructor.prototype</code>.<br/>
-	И всё — это будет унаследовано.<br/>
-	<br/>
-</Box>
-<center>
-<h1>		&mdash; Зачем?</h1>
-</center>
-
------
-[{"snowflakes":true}]
-
-<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
-	4 декабря 1995, дата рождения JavaScript<br/>
-	<br/>
-	У более развитых языков было наследование на классах.<br/>
-	Но прототипы — гораздо более простой паттерн.<br/>
-	Просто положи что-нибудь в <code className="inlineCode">Constructor.prototype</code>.<br/>
-	И всё — это будет унаследовано.<br/>
-	<br/>
-</Box>
-
-<center>
-<h1> Конечно из-за снежинок !</h1>
-</center>
-
------
-
-# в JS всё объекты
-
-<Box sx={{marginTop: '5vh'}}>
-<center>
-<img src="./content/img/JS_Object_Topology.svg" style={{width: '78%'}} />
-</center>
-</Box>
-
------
-
-# Насколько глубока Кроличья Нора ?
-
-<Box sx={{marginTop: '5vh'}}>
-<center>
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">
-<img src="./content/img/PrototypeChain.png"  style={{width: '70vw'}} />
-</a>
-</center>
-</Box>
-
-<Button onClick={() => { runExample('PrototypeChainDeepnessTest')}}>Run Me</Button>
-
-
------
-
-# в общем тут ...
-
-<Box sx={{marginTop: '5vh'}}>
-<center>
-<h1 style={{fontSize: '7vh', color: 'teal', marginLeft: '-15vw'}}>... есть новые примеры   ...</h1>
-</center>
-</Box>
-
------
-
-# в общем тут ...
-
-<Box sx={{marginTop: '5vh'}}>
-<center>
-<h1 style={{fontSize: '7vh', color: 'teal', marginLeft: '-15vw'}}>... есть новые примеры   ...</h1>
-<div style={{transform: 'rotate(55deg)'}}>
-<h1 style={{fontSize: '5vh', color: 'teal'}}> ↑</h1>
-<h1 style={{fontSize: '11vh', color: 'teal'}}> ← <span style={{color:'violet'}}>;^)</span>  →</h1>
-<h1 style={{fontSize: '5vh', color: 'teal'}}> ↓</h1>
+<div className="poem">
+  <div className="ln cyan on">если очень долго</div>
+  <div className="ln ink on">смотреть на код</div>
+  <div className="ln pink">код станет смотреть на вас</div>
 </div>
-</center>
-</Box>
+
+-----
+
+<div className="poem">
+  <div className="ln cyan on">если очень долго</div>
+  <div className="ln ink on">смотреть на код</div>
+  <div className="ln pink on">код станет смотреть на вас</div>
+</div>
+
+-----
+
+<h1 className="h1">раньше уже <em>рассказывал</em></h1>
+
+<div style={{display:'grid',gridTemplateColumns:'1.5fr 1.2fr',gap:'34px',alignItems:'center',marginTop:'30px',width:'90%'}}>
+  <div>
+    <div className="h2 lower" style={{fontSize:'60px'}}>... но есть ощущение,<br/><span className="muted">что многие пропустили</span></div>
+    <div className="callout pink">
+      <div className="lead">так что — пройдём ещё раз,<br/>и медленнее.</div>
+    </div>
+  </div>
+  <div className="img-frame">
+    <img src="./content/img/Yes-You-Can.jpg" alt="Yes you can" />
+  </div>
+</div>
+
+-----
+
+<div className="interstitial">
+  <div className="big">почему<span className="punct">?</span></div>
+</div>
+
+-----
+
+<h1 className="h1">мне нравятся <em>эти два</em> слайда</h1>
+
+<div className="img-frame bleed" style={{maxWidth:'1200px',margin:'0 7%'}}>
+  <img src="./content/img/poly_struct.svg" alt="полигональная структура" />
+</div>
+
+-----
+
+<h1 className="h1">мне нравятся <em>эти два</em> слайда</h1>
+
+<div className="img-frame bleed" style={{maxWidth:'1200px',margin:'0 7%'}}>
+  <img src="./content/img/poly_red.svg" alt="полигональная структура · красная" />
+</div>
+
+-----
+
+<div className="dip-wrap">
+  <div className="caption">. . . как-то так . . .</div>
+  <img src="./content/dip.png" alt="пингвин в горах" />
+</div>
+
+-----
+
+<div className="divider">
+  <div className="numeral">−1</div>
+  <div className="meta">
+    <div className="label">part · minus one</div>
+    <div className="name"><em>snowflakes</em></div>
+    <div className="desc">прежде чем перейти к коду — короткая разминка: вопросы залу, история и snowflakes.</div>
+  </div>
+</div>
+
+-----
+
+<h1 className="h1">задам <em>вопросы</em> аудитории</h1>
+
+<div className="audience">
+  <div className="q q1"><span className="num">01</span><span>Часто ли вы сталкиваетесь с <em>JavaScript</em>?</span></div>
+  <div className="q q2"><span className="num">02</span><span>Ваш <em>AI</em> уже умеет в JavaScript?</span></div>
+  <div className="q q3"><span className="num">03</span><span>Или агенты «<strong>сам решили</strong>», что знают <em>JavaScript</em>?</span></div>
+</div>
+
+-----
+
+<h1 className="h1">задам <em>вопросы</em> аудитории</h1>
+
+<div className="audience">
+  <div className="q q1 on"><span className="num">01</span><span>Часто ли вы сталкиваетесь с <em>JavaScript</em>?</span></div>
+  <div className="q q2"><span className="num">02</span><span>Ваш <em>AI</em> уже умеет в JavaScript?</span></div>
+  <div className="q q3"><span className="num">03</span><span>Или агенты «<strong>сам решили</strong>», что знают <em>JavaScript</em>?</span></div>
+</div>
+
+-----
+
+<h1 className="h1">задам <em>вопросы</em> аудитории</h1>
+
+<div className="audience">
+  <div className="q q1 on"><span className="num">01</span><span>Часто ли вы сталкиваетесь с <em>JavaScript</em>?</span></div>
+  <div className="q q2 on"><span className="num">02</span><span>Ваш <em>AI</em> уже умеет в JavaScript?</span></div>
+  <div className="q q3"><span className="num">03</span><span>Или агенты «<strong>сам решили</strong>», что знают <em>JavaScript</em>?</span></div>
+</div>
+
+-----
+
+<h1 className="h1">задам <em>вопросы</em> аудитории</h1>
+
+<div className="audience">
+  <div className="q q1 on"><span className="num">01</span><span>Часто ли вы сталкиваетесь с <em>JavaScript</em>?</span></div>
+  <div className="q q2 on"><span className="num">02</span><span>Ваш <em>AI</em> уже умеет в JavaScript?</span></div>
+  <div className="q q3 on"><span className="num">03</span><span>Или агенты «<strong>сам решили</strong>», что знают <em>JavaScript</em>?</span></div>
+</div>
+
+-----
+
+<div className="history">
+  <div className="year">1995 <span className="day">· 4 декабря</span></div>
+  <p>дата рождения JavaScript.</p>
+  <p>у более развитых языков было наследование на классах.</p>
+  <p>но прототипы — гораздо более простой паттерн.</p>
+  <p>просто положи что-нибудь в <code className="ic">Constructor.prototype</code>.</p>
+  <p>и всё — это будет унаследовано.</p>
+</div>
+
+-----
+
+<div className="history">
+  <div className="year">1995 <span className="day">· 4 декабря</span></div>
+  <p>дата рождения JavaScript.</p>
+  <p>у более развитых языков было наследование на классах.</p>
+  <p>но прототипы — гораздо более простой паттерн.</p>
+  <p>просто положи что-нибудь в <code className="ic">Constructor.prototype</code>.</p>
+  <p>и всё — это будет унаследовано.</p>
+  <div className="punch">— <span className="pink">зачем?</span></div>
+</div>
+
+-----
+
+<div className="snowflakes" aria-hidden="true"></div>
+
+<div className="history">
+  <div className="year">1995 <span className="day">· 4 декабря</span></div>
+  <p>дата рождения JavaScript.</p>
+  <p>у более развитых языков было наследование на классах.</p>
+  <p>но прототипы — гораздо более простой паттерн.</p>
+  <p>просто положи что-нибудь в <code className="ic">Constructor.prototype</code>.</p>
+  <p>и всё — это будет унаследовано.</p>
+  <div className="punch snow">❄ конечно — из-за снежинок ! ❄</div>
+</div>
+
+-----
+
+<h1 className="h1">в JS всё — <em>объекты</em></h1>
+
+<div style={{display:'grid',placeItems:'center',marginTop:'-10px'}}>
+  <img src="./content/img/JS_Object_Topology.svg" style={{width:'100%',maxWidth:'1600px'}} />
+</div>
+
+-----
+
+<h1 className="h1">насколько глубока <em>кроличья нора</em>?</h1>
+
+<div className="img-frame" style={{maxWidth:'1500px',margin:'0 auto'}}>
+  <img src="./content/img/PrototypeChain.png" alt="Prototype chain" />
+</div>
+
+<Button onClick={() => { runExample('PrototypeChainDeepnessTest')}} className="run-me">Run Me</Button>
+
+-----
+
+<h1 className="h1">в общем тут <em>...</em></h1>
+
+<div style={{display:'grid',placeItems:'center',marginTop:'40px'}}>
+  <div className="h2 lower cyan" style={{fontSize:'88px'}}>... есть новые примеры ...</div>
+</div>
+
+-----
+
+<h1 className="h1">в общем тут <em>...</em></h1>
+
+<div style={{display:'grid',placeItems:'center',marginTop:'30px'}}>
+  <div className="h2 lower cyan" style={{fontSize:'88px'}}>... есть новые примеры ...</div>
+  <div style={{transform:'rotate(55deg)',marginTop:'60px',textAlign:'center',fontFamily:'var(--ff-mono)',color:'var(--cyan)'}}>
+    <div style={{fontSize:'48px',lineHeight:'1'}}>↑</div>
+    <div style={{fontSize:'96px',lineHeight:'1'}}>← <span style={{color:'var(--pink)'}}>;^)</span> →</div>
+    <div style={{fontSize:'48px',lineHeight:'1'}}>↓</div>
+  </div>
+</div>

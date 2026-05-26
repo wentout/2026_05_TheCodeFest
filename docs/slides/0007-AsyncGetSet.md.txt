@@ -1,0 +1,185 @@
+
+<div className="divider">
+  <div className="numeral">5</div>
+  <div className="meta">
+    <div className="label">part · five</div>
+    <div className="name">async <em>get ~ set</em></div>
+    <div className="desc">Когда присваивание — не то, чем кажется. async get/set в JavaScript runtime.</div>
+  </div>
+</div>
+
+-----
+
+<h1 className="h1"><em>Асинхронные</em> геттеры и сеттеры</h1>
+
+<div className="code">
+```javascript
+const myObj = {};
+let field = 123;
+Object.defineProperty(myObj, 'field', {
+    async get () {
+        return new Promise((resolve) => {
+            setTimeout(() => resolve(field), 1000);
+        });
+    },
+    async set (value) { field = value; }
+});
+```
+</div>
+
+-----
+
+<h1 className="h1"><em>Асинхронные</em> геттеры и сеттеры</h1>
+
+<div className="code">
+```javascript
+const myObj = {};
+let field = 123;
+Object.defineProperty(myObj, 'field', {
+    async get () {
+        return new Promise((resolve) => {
+            setTimeout(() => resolve(field), 1000));
+        });
+    },
+    async set (value) { field = value; }
+});
+
+const myObj.field = 321;
+console.log('addition:', addition);    // Promise { ... }
+console.log(await myObj.field);        // 321 (через 1 сек)
+```
+</div>
+
+-----
+
+<h1 className="h1">Присваивание <em>НЕ вернуло</em> Promise!</h1>
+
+<div className="code code-lg">
+```javascript
+// ...
+    async set (value) { field = value; }
+});
+// к сожалению ответа на этот вопрос
+// мы никогда не узнаем
+myObj.field = 321;
+// если бы мы знали, но мы не знаем
+```
+</div>
+
+-----
+
+<h1 className="h1">Присваивание <em>НЕ вернуло</em> Promise!</h1>
+
+<div className="code code-lg">
+```javascript
+// ...
+    async set (value) { field = value; }
+});
+// вообще так написать, конечно можно
+// и Хотелось бы "Сюрприз", но увы ... :
+await ( myObj.field = 321 );
+// ↑ что здесь происходит вообще ???
+```
+</div>
+
+-----
+
+<h1 className="h1">Присваивание <em>НЕ вернуло</em> Promise!</h1>
+
+<div className="code code-lg">
+```javascript
+// ...
+    async set (value) { field = value; }
+});
+// и ещё и так написать тоже можно
+// и Хотелось бы другой "Сюрприз", но увы ... :
+const creep = ( await (myObj.field = 321));
+// но увы ↑ сюда ответ тоже не придёт ...
+```
+</div>
+
+-----
+
+<h1 className="h1"><em>всё же</em> посмотрим, как это работает</h1>
+
+<div className="code">
+```javascript
+const myObj = {};
+let field = 123;
+Object.defineProperty(myObj, 'field', {
+    async get () {
+        return new Promise((resolve) => {
+            setTimeout(() => resolve(field), 1000));
+        });
+    },
+    async set (value) { field = value; }
+});
+```
+</div>
+
+<Button onClick={() => { runExample('awaited_assignment')}} className="run-me">Run Me</Button>
+
+<div className="callout pink">
+  <div className="lead">хотя assignment, увы, <span className="pink">не await'-ится</span></div>
+</div>
+
+-----
+
+<h1 className="h1">а <em>как в TypeScript?</em></h1>
+
+<div className="code code-sm">
+```typescript
+// TS НЕ поддерживает async get/set напрямую
+// Но можно типизировать через Promise:
+interface AsyncField {
+    get(): Promise<number>;
+    set(value: number): Promise<void>;
+}
+// Или через прокси-объект:
+interface AsyncObject {
+    field: Promise<number>;
+}
+// Присваивание = number, не Promise!
+const value: number = await (myObj.field = 321);
+// type error: assignment возвращает 321, не Promise
+```
+</div>
+
+<div className="callout">
+  <div className="lead">async get/set — runtime-only, TS видит только <span className="pink">синхронный интерфейс</span></div>
+</div>
+
+-----
+
+<h1 className="h1">Где это <em>может применяться</em></h1>
+
+<div className="split" style={{marginTop:'30px'}}>
+  <div className="card">
+    <div className="badge">Асинхронный getter</div>
+    <ul>
+      <li>обогащение данных: <code className="ic">fetch</code> конфига</li>
+      <li>общение с асинхронными протоколами</li>
+      <li>ленивые вычисления</li>
+    </ul>
+  </div>
+  <div className="card alt">
+    <div className="badge">Асинхронный setter</div>
+    <ul>
+      <li>валидация перед записью</li>
+      <li>Buffers || UDP</li>
+      <li>Atomic / Notify</li>
+    </ul>
+  </div>
+</div>
+
+<div className="callout pink" style={{marginTop:'30px'}}>
+  <div className="lead">Нужно решить: ждать предыдущий <code className="ic">set</code> или перезаписывать?</div>
+  <div className="sub">Иначе — race condition. Берегите <span className="pink">A.C.I.D.</span></div>
+</div>
+
+-----
+
+<div className="dip-wrap">
+  <div className="caption">. . . и это мы ещё не начали . . .</div>
+  <img src="./content/dip.png" alt="пингвин" />
+</div>

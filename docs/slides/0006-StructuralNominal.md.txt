@@ -1,0 +1,295 @@
+
+<div className="divider">
+  <div className="numeral">4</div>
+  <div className="meta">
+    <div className="label">part · four</div>
+    <div className="name"><em>структурная</em> vs номинальная</div>
+    <div className="desc">Type — математика множеств. Interface — имена классов. Наследование работает иначе.</div>
+  </div>
+</div>
+
+-----
+
+<h1 className="h1"><em>структурная</em> (type) vs <em>номинальная</em> (interface)</h1>
+
+<div className="code code-sm">
+```typescript
+// напомню основные концепции, типизация бывает
+// Структурная (обычная): одинаковая структура == одинаковый тип
+type Point  = { x: number; y: number };
+type Coord  = { x: number; y: number };
+// Point ≡ Coord  ✓  (структурно эквивалентны)
+
+// Номинальная (мудрёная): разные имена === разные типы
+interface IPoint { x: number; y: number; }
+interface ICoord { x: number; y: number; }
+// IPoint ≢ ICoord  ✗  (номинально различны)
+```
+</div>
+
+<div className="callout">
+  <div className="lead"><span className="cyan">type</span> — математика множеств<br/><span className="pink">interface</span> — имена классов</div>
+</div>
+
+-----
+
+<h1 className="h1"><em>добавить</em> Тип в Интерфейс</h1>
+
+<div className="code">
+```javascript
+// в стилистике 1995, но сейчас так тоже можно
+var TheConstructor = function () {
+	this; // type of TheConstructor.prototype
+};
+var existingPOJO = { previous: true };
+Object.assign(
+    TheConstructor.prototype, existingPOJO
+);
+// typeof existingPOJO & typeof InstanceType<TheConstructor>
+var instance = new TheConstructor; 
+```
+</div>
+
+<div className="callout">
+  <div className="lead">для вывода типа instance нужно объединить существующие типы</div>
+</div>
+
+-----
+
+<h1 className="h1"><em>добавить</em> Тип в Интерфейс</h1>
+
+<div className="code">
+```javascript
+// на "современный" лад почти ничем не отличается
+const TheConstructor = function () {
+	this; // type of TheConstructor.prototype
+};
+const existingPOJO = { previous: true };
+Object.assign(
+    TheConstructor.prototype, existingPOJO
+);
+// typeof existingPOJO & typeof InstanceType<TheConstructor>
+const instance = new TheConstructor; 
+```
+</div>
+
+<div className="callout">
+  <div className="lead">для вывода типа instance нужно объединить существующие типы</div>
+</div>
+
+-----
+
+<h1 className="h1"><em>Intersection</em> не работает</h1>
+
+<div className="code">
+```typescript
+// Наивное пересечение по перекрывающимся ключам :
+
+type A = { x: 1 };
+type B = { x: 2 };
+// пытаемся объяснить, что нам нужно
+type AB = A & B;  // { x: never }  ← КОНФЛИКТ!
+
+// TypeScript intersection требует оба значения сразу
+// Но цепочки прототипов не сливаются — 
+//    они ПЕРЕОПРЕДЕЛЯЮТ ...
+```
+</div>
+
+<div className="callout pink">
+  <div className="lead">Потому, что Наследование совсем работает <span className="pink">Иначе!</span></div>
+</div>
+
+-----
+
+<h1 className="h1"><em>Intersection</em> не работает</h1>
+
+<div className="code">
+```typescript
+// Наивное пересечение по перекрывающимся ключам :
+
+type A = { x: 1 };
+type B = { x: 2 };
+// но увидев это больше не пытаемся объяснить ...
+type AB = A & B;  // { x: never }  ← КОНФЛИКТ!
+
+// TypeScript intersection требует оба значения сразу.
+// Но цепочки прототипов не сливаются — 
+//    они ПЕРЕОПРЕДЕЛЯЮТ !!!
+```
+</div>
+
+<div className="callout pink">
+  <div className="lead">A & B по перекрывающимся ключам даёт <span className="pink">never</span></div>
+</div>
+
+-----
+
+<h1 className="h1">Паттерн <em>Proto</em>: Pick + Exclude</h1>
+
+<div className="code">
+```typescript
+// Корректно моделирует наследование цепочки:
+export type Proto<P extends object, T extends object>
+ = T & Pick<P, Exclude<keyof P, keyof T>>;
+// Родитель: x == 1, Потомок переопределяет на x == 2
+type Parent = { x: 1; y: 'a' };
+type Child  = { x: 2 };
+type Result = Proto<Parent, Child>;
+// Result = { x: 2 } & Pick<Parent, 'y'>
+// Result = { x: 2; y: 'a' }  ← Потомок ПОБЕЖДАЕТ!
+```
+</div>
+
+<div className="callout">
+  <div className="lead">где <code className="ic">P</code> — это <code className="ic">prototype</code>, а <code className="ic">T</code> — actual <code className="ic">type</code></div>
+</div>
+
+-----
+
+<h1 className="h1">interface <em>НЕ МОЖЕТ</em> это выразить</h1>
+
+<div className="code">
+```typescript
+interface Parent {
+    x: 1;
+}
+// Interface 'Child' incorrectly extends interface 'Parent'.
+//  Types of property 'x' are incompatible.
+//    Type '2' is not assignable to type '1'.
+interface Child extends Parent {
+    x: 2;  // Ошибка: x уже объявлен в Parent
+} // т.к. interface extends - это "номинальная" проверка
+```
+</div>
+
+<div className="callout">
+  <div className="lead"><code className="ic">interface extends</code> заставляет потомка быть совместимым с родителем</div>
+</div>
+
+-----
+
+<h1 className="h1">interface <em>НЕ МОЖЕТ</em> это выразить</h1>
+
+<div className="code">
+```typescript
+// Interface требует совместимости:
+interface Child extends Parent {
+    // Ошибка: x уже объявлен в Parent
+    x: 2;
+}
+// Но type с паттерном Proto МОЖЕТ:
+type Child = Proto<Parent, { x: 2 }>;
+// ✓  { x: 2; ... }
+// type & Pick/Exclude = структурное переопределение
+```
+</div>
+
+<div className="callout">
+  <div className="lead">тип позволяет исключить свойства из потомка</div>
+  <div className="sub"><code className="ic">interface extends</code> заставляет их быть совместимыми</div>
+</div>
+
+-----
+
+<h1 className="h1">подробно про это я <em>рассказывал</em> в 2023</h1>
+
+<div className="img-frame bleed" style={{maxWidth:'1200px',margin:'0 auto'}}>
+  <img src="./content/download.png" alt="скачать презентацию" />
+</div>
+
+-----
+
+<h1 className="h1">Почему тип <em>МОЖЕТ</em> это выразить</h1>
+
+<div className="code">
+```typescript
+// Корректно моделирует наследование цепочки:
+export type Proto<P extends object, T extends object>
+ = T & Pick<P, Exclude<keyof P, keyof T>>;
+
+// Родитель: x == 1, Потомок переопределяет на x == 2
+type Parent = { x: 1; y: 'a' };
+type Child  = { x: 2 };
+type Result = Proto<Parent, Child>;
+// Result = { x: 2 } & Pick<Parent, 'y'>
+// Result = { x: 2; y: 'a' }  ← Потомок ПОБЕЖДАЕТ!
+```
+</div>
+
+<div className="callout">
+  <div className="lead">Потому, что <code className="ic">type</code> может создать <span className="pink">ПЕРЕОПРЕДЕЛЕНИЕ</span></div>
+</div>
+
+-----
+
+<h1 className="h1">Почему тип <em>МОЖЕТ</em> это выразить</h1>
+
+<div className="code">
+```typescript
+// Алгебра типов TypeScript:
+type Instance = 
+        Proto<Base, Proto<Extension, Override>>;
+
+// JavaScript runtime:
+const instance = Object.setPrototypeOf(
+    Override,
+    Object.setPrototypeOf(Extension, Base)
+);
+instance.x;  // ближайшее побеждает!
+```
+</div>
+
+<div className="callout">
+  <div className="lead"><code className="ic">type</code> « может в это » через : <code className="ic">Pick + Exclude + &</code></div>
+</div>
+
+-----
+
+<h1 className="h1">В общем <em>« такой себе »</em> Proto-Chain</h1>
+
+<div className="code">
+```typescript
+// Корректно моделирует наследование цепочки:
+export type Proto<P extends object, T extends object>
+ = T & Pick<P, Exclude<keyof P, keyof T>>;
+
+// Родитель: x == 1, Потомок переопределяет на x == 2
+type Parent = { x: 1; y: 'a' };
+type Child  = { x: 2 };
+type Result = Proto<Parent, Child>;
+// Result = { x: 2 } & Pick<Parent, 'y'>
+// Result = { x: 2; y: 'a' }  ← Потомок ПОБЕЖДАЕТ!
+```
+</div>
+
+<div className="callout">
+  <div className="lead">как закат солнца « вручную » через педальный привод</div>
+</div>
+
+-----
+
+<h1 className="h1">и это <em>хорошо работает</em> с extends</h1>
+
+<div className="code">
+```typescript
+// Без extends — прототип "захардкожен" в NewableFunction
+interface BadCtor extends NewableFunction {
+    // prototype: any  ← из родителя, не переопредишь!
+}
+
+// С extends + пересечением — контроль над цепочкой:
+interface GoodCtor extends NewableFunction {
+    prototype: Proto<Base, Extension>;
+}
+
+Proto<T,P> = P & Pick<T, Exclude<keyof T, keyof P>>
+```
+</div>
+
+-----
+
+<div className="dip-wrap">
+  <div className="caption">. . . такие дела . . .</div>
+  <img src="./content/dip.png" alt="пингвин" />
+</div>

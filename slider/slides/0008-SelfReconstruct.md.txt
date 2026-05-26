@@ -1,20 +1,19 @@
 
-<h1 className="slide-title">new instance</h1>
-
-<div className="slide-subtitle">
-<h2>или рассказ о том как<br/> сделать экземпляр экземпляра</h2>
+<div className="divider">
+  <div className="numeral">6</div>
+  <div className="meta">
+    <div className="label">part · six</div>
+    <div className="name"><em>self</em> reconstruct</div>
+    <div className="desc">Как сделать экземпляр экземпляра? Self-reconstruction и прототипы.</div>
+  </div>
 </div>
-
-<h1 className="borderline">8</h1>
 
 -----
 
-# Зачем self reconstruct ?
+<h1 className="h1"><em>Зачем</em> self reconstruct ?</h1>
 
-<div className='codemedium'>
-
+<div className="code">
 ```javascript
-
 const { HTMLElement } = window;
 
 class MyHTMLElement extends HTMLElement {}
@@ -31,10 +30,9 @@ console.log('myElement instanceof HTMLElement',
 
 -----
 
-# Зачем self reconstruct ?
+<h1 className="h1"><em>Зачем</em> self reconstruct ?</h1>
 
-<div className='codemedium'>
-
+<div className="code">
 ```javascript
 class MyHTMLElement extends HTMLElement {
     communicate ( value ) {
@@ -52,10 +50,9 @@ Object.setPrototypeOf(protoProps, HTMLElement.prototype);
 
 -----
 
-# Зачем self reconstruct ?
+<h1 className="h1"><em>Зачем</em> self reconstruct ?</h1>
 
-<div className='codemedium'>
-
+<div className="code">
 ```javascript
 const proxy = new Proxy(protoProps, {
     get (target, prop, receiver) {
@@ -68,16 +65,14 @@ const proxy = new Proxy(protoProps, {
         console.log('set:', prop, result, value);
         return result;
     } // ↓↓↓ и далее всё, что нужно ...
-
 ```
 </div>
 
 -----
 
-# Зачем self reconstruct ?
+<h1 className="h1"><em>Зачем</em> self reconstruct ?</h1>
 
-<div className='codemedium'>
-
+<div className="code">
 ```javascript
 Object.setPrototypeOf(MyHTMLElement.prototype, proxy);
 
@@ -90,21 +85,17 @@ console.log('myElement instanceof HTMLElement',
 
 console.log('render begins');   // magic happens here
 myElement.innerText = 123;      // set скажет в консоль
-
 ```
 </div>
 
-
-<Button onClick={() => { openExample('MyHTMLElement')}}>Run Me</Button>
+<Button onClick={() => { openExample('MyHTMLElement')}} className="run-me">Run Me</Button>
 
 -----
 
-# Спросил Gemini AI : &laquo; Можешь Повторить &raquo; ?
+<h1 className="h1">Спросил <em>Gemini AI</em> : « Можешь Повторить ?»</h1>
 
-<div className='codemedium'>
-
+<div className="code code-sm">
 ```javascript
-
 For Self Reconstruct: 
 
 The Working Solution: .spawn() Method.
@@ -116,18 +107,16 @@ Here is the corrected code.
 
 It replaces new myElement with myElement.spawn(),
 which is the only valid way to achieve this in the DOM.
-
 ```
 </div>
 
-<Button onClick={() => { openExample('GeminiTest')}}>Run Me</Button>
+<Button onClick={() => { openExample('GeminiTest')}} className="run-me">Run Me</Button>
 
 -----
 
-# Ответ Gemini AI : да &laquo; давай ещё по одной &raquo; ...
+<h1 className="h1">Ответ Gemini AI : да <em>« давай ещё по одной »</em> ...</h1>
 
-<div className='codemedium'>
-
+<div className="code code-sm">
 ```javascript
 You are most welcome.
 
@@ -140,19 +129,16 @@ For Self Reconstruct:
  The .spawn() method bridges the gap between the rigid
  HTMLElement C++ layer and the flexible JavaScript prototype system,
  giving you the "self-reconstruction" behavior you were looking.
-
 ```
 </div>
 
-<Button onClick={() => { openExample('GeminiTest_Re_Re')}}>Run Me</Button>
-
+<Button onClick={() => { openExample('GeminiTest_Re_Re')}} className="run-me">Run Me</Button>
 
 -----
 
-# Спросил KIMI K2.6: &laquo; умеете, ну &mdash; могёте &raquo;
+<h1 className="h1">Спросил <em>KIMI K2.6</em> : « умеете, ну — могёте »</h1>
 
-<div className='codemedium'>
-
+<div className="code code-sm">
 ```javascript
 Purpose:
   Useful above meta-programming, prototype-chain-based state machines,
@@ -168,14 +154,13 @@ Technique:
 ```
 </div>
 
-<Button onClick={() => { openExample('MyHTMLElementReconstructible')}}>Run Me</Button>
+<Button onClick={() => { openExample('MyHTMLElementReconstructible')}} className="run-me">Run Me</Button>
 
 -----
 
-# KIMI : Final Architecture
+<h1 className="h1">KIMI : <em>Final Architecture</em></h1>
 
-<Box>
-<div className='codemedium'>
+<div className="code code-sm">
 ```javascript
 seq (Self function, from new reconstructed)
   → prototype: { constructor: MyHTMLElement }
@@ -192,14 +177,12 @@ seq (Self function, from new reconstructed)
                       → null
 ```
 </div>
-</Box>
 
 -----
 
-# Как выглядит паттерн Self Reconstructor в JS
+<h1 className="h1">Паттерн <em>Self Reconstructor</em> в JS</h1>
 
-<div className='codemedium'>
-
+<div className="code">
 ```javascript
 const SelfReConstructor = function () {
     const main = this.constructor;
@@ -216,15 +199,13 @@ const SelfReConstructor = function () {
     return Self;
 };
 ```
-
 </div>
 
 -----
 
-# и, да, то есть потом можно вот так
+<h1 className="h1">и, да, то есть потом можно <em>вот так</em></h1>
 
-<div className='codemedium'>
-
+<div className="code">
 ```javascript
 const item = new SelfReConstructor();
 
@@ -237,20 +218,17 @@ item instanceof SelfReConstructor;  // true
 item instanceof Function;           // true
 item instanceof Object;             // true
 ```
-
 </div>
 
-
-<div className="slide-callout">
-<h2 className="danger"><code className="inlineCode">item</code> — одновременно и Тип и Интерфейс !</h2>
+<div className="callout pink">
+  <div className="lead"><code className="ic">item</code> — одновременно и <span className="cyan">Тип</span> и <span className="pink">Интерфейс</span> !</div>
 </div>
 
 -----
 
-# и ещё вот так ...
+<h1 className="h1">и ещё <em>вот так</em> ...</h1>
 
-<div className='codemedium'>
-
+<div className="code">
 ```javascript
 const re = new item;  // new item() работает!
 
@@ -262,22 +240,18 @@ console.log(re instanceof Object);              // true
 class MyInheritedItem extends re {
     /* yes, it works */
 }
-
 ```
-
 </div>
 
-<div className="slide-callout">
-<h2 className="secondary"><code className="inlineCode">MyInheritedItem instanceof item</code></h2>
+<div className="callout">
+  <div className="lead"><code className="ic">MyInheritedItem instanceof item</code></div>
 </div>
 
 -----
 
+<h1 className="h1"><em>запустим</em> и посмотрим</h1>
 
-# запустим и посмотрим
-
-<div className='codemedium'>
-
+<div className="code">
 ```javascript
 const re = new item;  // new item() работает!
 
@@ -289,23 +263,20 @@ console.log(re instanceof Object);              // true
 class MyInheritedItem extends re {
     /* yes, it works */
 }
-
 ```
-
 </div>
 
-<div className="slide-callout">
-<h2 className="secondary"><code className="inlineCode">MyInheritedItem instanceof item</code></h2>
+<div className="callout">
+  <div className="lead"><code className="ic">MyInheritedItem instanceof item</code></div>
 </div>
 
-<Button onClick={() => { runExample('self_reconstruct')}}>Run Me</Button>
+<Button onClick={() => { runExample('self_reconstruct')}} className="run-me">Run Me</Button>
 
 -----
 
-# А как в TypeScript?
+<h1 className="h1">а <em>как в TypeScript?</em></h1>
 
-<div className='codemedium'>
-
+<div className="code">
 ```typescript
 // self — это и экземпляр, и конструктор
 interface Self {
@@ -321,34 +292,37 @@ interface Reconstructible<T> extends NewableFunction {
 const item: Self = new (Cstr as Reconstructible<Self>);
 const re: Self = new item;   // ok — item is constructible
 ```
-
 </div>
 
-<div className="slide-callout">
-<h3 className="secondary">Identity pattern: тип сам себя порождает — рекурсивный <code className="inlineCode">new () =&gt; Self</code></h3>
+<div className="callout">
+  <div className="lead">Identity pattern: тип сам себя порождает — рекурсивный <code className="ic">new () => Self</code></div>
 </div>
 
 -----
 
-# Зачем само-воспроизведение
+<h1 className="h1"><em>Зачем</em> само-воспроизведение</h1>
 
-<Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
-
-<h3>• Пересоздать экземпляр с нуля</h3>
-<h3>• Склонировать с новыми аргументами</h3>
-<h3 className="secondary">• Undo / Redo: повторить создание, откатить изменения</h3>
-<br/>
-<h3><code className="inlineCode">new myItem</code> — <br/> &nbsp; каждый объект знает, как себя пересоздать</h3>
-<h3><code className="inlineCode">new myItem.MyReConstructibleField</code> — <br/> &nbsp; удобно для типизированных полей</h3>
-
-</Box>
+<div className="split" style={{marginTop:'30px'}}>
+  <div className="card">
+    <div className="badge">Возможности</div>
+    <ul>
+      <li>Пересоздать экземпляр с нуля</li>
+      <li>Склонировать с новыми аргументами</li>
+      <li>Undo / Redo: повторить создание</li>
+    </ul>
+  </div>
+  <div className="card alt">
+    <div className="badge">Синтаксис</div>
+    <ul>
+      <li><code className="ic">new myItem</code> — каждый объект знает, как себя пересоздать</li>
+      <li><code className="ic">new myItem.MyReConstructibleField</code> — удобно для типизированных полей</li>
+    </ul>
+  </div>
+</div>
 
 -----
 
-# &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; вот теперь ...
-
-<div>
-<Box sx={{textAlign: 'center'}}>
-<img src="./content/dip.png" style={{width: '67%', marginTop: '5vh', borderRadius: '2vh'}} />
-</Box>
+<div className="dip-wrap">
+  <div className="caption">. . . вот теперь . . .</div>
+  <img src="./content/dip.png" alt="пингвин" />
 </div>

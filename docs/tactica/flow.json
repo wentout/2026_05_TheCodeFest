@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-05-19T21:51:33.324Z",
+  "generatedAt": "2026-05-26T22:25:31.938Z",
   "flow": {
     "window.keypress.Listener": [
       {
@@ -138,7 +138,7 @@
     ],
     "Error": [
       {
-        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Slide.tsx:11:9",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Slide.tsx:26:9",
         "kind": "instantiation",
         "code": "new Error(`some ${this.constructor.name} fail`)",
         "context": "new expression"
@@ -158,7 +158,7 @@
     ],
     "slideRenderer.Footer": [
       {
-        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Slide.tsx:34:18",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Slide.tsx:49:18",
         "kind": "instantiation",
         "code": "new slideRenderer.Footer(counters)",
         "context": "new expression"
@@ -166,27 +166,27 @@
     ],
     "slideRenderer.Progressor": [
       {
-        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Slide.tsx:39:22",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Slide.tsx:54:22",
         "kind": "instantiation",
         "code": "new slideRenderer.Progressor()",
         "context": "new expression"
       },
       {
-        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Slide.tsx:59:1",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Slide.tsx:74:1",
         "kind": "propertyWrite",
         "code": "Slide.prototype.View = function () {\n\t \n\tconst app = this;\n\tconst {\n\t\tSlideView\n\t} = app;\n\n\n\tthis.re",
         "propertyName": "View",
         "targetType": "slideRenderer.Progressor"
       },
       {
-        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Slide.tsx:59:1",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Slide.tsx:74:1",
         "kind": "propertyRead",
         "code": "Slide.prototype.View",
         "propertyName": "View",
         "targetType": "slideRenderer.Progressor"
       },
       {
-        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Slide.tsx:59:1",
+        "location": "/code/talks/2026_05_TheCodeFest/slider/src/components/Slide.tsx:74:1",
         "kind": "propertyRead",
         "code": "Slide.prototype",
         "propertyName": "prototype",
@@ -412,14 +412,14 @@
         "context": "arg 0 to call"
       },
       {
-        "location": "src/components/Root.tsx:9:8",
+        "location": "src/components/Root.tsx:24:8",
         "kind": "destructureRead",
         "code": "{\n\t\tslides,\n\t\tcounters\n\t} = app",
         "targetType": "Runner",
         "context": "slides, counters"
       },
       {
-        "location": "src/components/Root.tsx:22:20",
+        "location": "src/components/Root.tsx:37:20",
         "kind": "elementAccess",
         "code": "app[ view ]",
         "targetType": "Runner"
@@ -427,27 +427,27 @@
     ],
     "slide.Footer": [
       {
-        "location": "src/components/Root.tsx:25:16",
+        "location": "src/components/Root.tsx:40:16",
         "kind": "instantiation",
         "code": "new slide.Footer(counters)",
         "context": "new expression"
       },
       {
-        "location": "src/components/Root.tsx:30:1",
+        "location": "src/components/Root.tsx:45:1",
         "kind": "propertyWrite",
         "code": "Root.prototype.View = function () {\n\t\n\tconst {\n\t\tSlideView\n\t} = this;\n\t\n\t\n\tthis.reactRoot.render(\n\t\t",
         "propertyName": "View",
         "targetType": "slide.Footer"
       },
       {
-        "location": "src/components/Root.tsx:30:1",
+        "location": "src/components/Root.tsx:45:1",
         "kind": "propertyRead",
         "code": "Root.prototype.View",
         "propertyName": "View",
         "targetType": "slide.Footer"
       },
       {
-        "location": "src/components/Root.tsx:30:1",
+        "location": "src/components/Root.tsx:45:1",
         "kind": "propertyRead",
         "code": "Root.prototype",
         "propertyName": "prototype",

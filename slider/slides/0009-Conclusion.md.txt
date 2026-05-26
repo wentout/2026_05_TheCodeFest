@@ -1,51 +1,42 @@
 
-<div className="slide-interstitial">
-<h1 className="secondary" style={{fontSize: '15vh'}}>спасибо !</h1>
-<h1 className="borderline">→</h1>
+<div className="keys-grid">
+  <div className="label">спасибо</div>
+  <div className="fin"><em>→</em></div>
 </div>
 
 -----
 
-<div>
-<center>
+<h1 className="h1"><em>ссылки</em></h1>
 
-<h1 className="secondary" style={{fontSize: '12vh'}}>ссылки</h1>
-
-<table>
-<tbody>
-<tr>
-
-<td>
-
-<img src="./content/qrcode.png"  style={{marginRight: '5vw', width: '27vw'}} />
-
-</td>
-
-<td>
-
-### https://www.npmjs.com/package/mnemonica
-
-# https://gist.github.com/wentout
-
-## https://github.com/wentout
-
-
-</td>
-
-</tr>
-</tbody>
-</table>
-
-</center>
+<div className="links">
+  <div className="qr">
+    <img src="./content/qrcode.png" alt="QR код" />
+  </div>
+  <div className="list">
+    <div>
+      <div className="label">npm</div>
+      <a href="https://www.npmjs.com/package/mnemonica">mnemonica</a>
+    </div>
+    <div>
+      <div className="label">gist</div>
+      <a href="https://gist.github.com/wentout">wentout</a>
+    </div>
+    <div>
+      <div className="label">github</div>
+      <a href="https://github.com/wentout">wentout</a>
+    </div>
+  </div>
 </div>
 
 -----
 
-<div className="slide-interstitial" style={{marginTop: '15vh'}}>
-<h1 className="secondary" style={{fontSize: '11vh'}}>f i n</h1>
-<h1 style={{fontSize:'10vh', lineHeight: '5vh'}}> ↑ </h1>
-<h1 style={{fontSize:'10vh', lineHeight: '5vh'}}> ← &nbsp; &nbsp; → </h1>
-<h1 style={{fontSize:'10vh', lineHeight: '5vh'}}> ↓ </h1>
+<div className="keys-grid">
+  <div className="label">f i n</div>
+  <div className="fin"><em>↑</em></div>
+  <div className="arrows">
+    <div className="row"><span>←</span> <span className="pink">→</span></div>
+  </div>
+  <div className="fin"><em>↓</em></div>
 </div>
 
 -----

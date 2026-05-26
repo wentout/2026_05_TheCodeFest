@@ -12,20 +12,26 @@
 	},
 	{
 		"view": "Starter",
-		"title": "..."
+		"layout": "breath",
+		"title": ". . .",
+		"author": "эпиграф"
 	},
 	{
 		"view": "Starter",
-		"title": "null is a 1B$ mistake",
-		"author": "Sir Charles Antony Richard Hoare"
+		"layout": "quote",
+		"title": "null is a \u003cem\u003e1\u0026nbsp;B$\u003c/em\u003e \u003cbr/\u003emistake",
+		"author": "Sir Charles Antony Richard Hoare · 2009"
 	},
 	{
 		"view": "Starter",
-		"title": "typeof null is another one",
-		"author": "JS co-author Brendan Eich"
+		"layout": "quote",
+		"title": "typeof null\u003cbr/\u003eis another one",
+		"author": "Brendan Eich · JS co-author"
 	},
 	{
 		"view": "Starter",
-		"title": "..."
+		"layout": "breath",
+		"title": "обо мне —",
+		"author": "очень коротко"
 	}
 ]

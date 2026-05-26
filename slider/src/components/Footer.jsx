@@ -14,9 +14,9 @@ const Footer = function ({count, index, level, among}) {
 Footer.prototype.View = function () {
 	const app = this;
 	return (
-		<div className="Footer" onClick={app.clickNext}>
-			<span className="myname">{NICK_TITLE}</span>
-			<span className="slides"> {this.pager} » {this.count}</span>
+		<div className="footer" onClick={app.clickNext}>
+			<span className="speaker"><b>Виктор Вершанский</b> · <em>@wentout</em></span>
+			<span className="pageno">{this.pager} <em>/</em> {this.count}</span>
 		</div>
 	);
 };

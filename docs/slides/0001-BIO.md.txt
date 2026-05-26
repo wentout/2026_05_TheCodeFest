@@ -1,46 +1,44 @@
 
-# <code className="inlineCode">Absolute Incompetence ( BIO )</code> 
-
-<div style={{display: 'grid', gridTemplateColumns: '1.0fr 1.0fr', gap: '3vw', margin: '8vh 0 0 5vh', width: '92%'}}>
-
-<div>
-<Box sx={{textAlign: 'left', fontSize: '4vh', lineHeight: '7vh' }}>
-
-* из Ростова-на-Дону
-* с 1999 пишу на JS
-* с 2011 на Node.js
-* пишу proposals
-* общаюсь c TC39
-* интересует диагностика
-* и топологии потоков данных 
-
-
-</Box>
+<div className="chrome">
+  <div className="l"><span className="mark"></span> 00 · кто это вообще</div>
+  <div className="r">BIO</div>
 </div>
 
-<div>
-<Box sx={{textAlign: 'center'}}>
-<img src="./content/ava_pipe_499.jpg" style={{width: '29vw', marginTop: '5vh', borderRadius: '2vh'}} />
-</Box>
-</div>
+<h1 className="h1 lower"><em>Absolute</em> <span className="mono">Incompetence</span></h1>
 
+<div className="bio">
+  <ul className="bullets">
+    <li>из Ростова-на-Дону</li>
+    <li>с 1999 пишу на <a href="https://tc39.es/" target="_blank" className="em">JavaScript</a></li>
+    <li>с 2011 на <a href="https://nodejs.org/" target="_blank" className="em">Node.js</a></li>
+    <li>пишу <a href="https://github.com/tc39/proposals" target="_blank" className="pink-em">proposals</a></li>
+    <li>общаюсь c <a href="https://tc39.es/" target="_blank" className="em">TC39</a></li>
+    <li>интересует <a href="https://github.com/nodejs/diagnostics" target="_blank" className="em">Diagnostics Working Group</a></li>
+    <li>и топологии потоков данных</li>
+  </ul>
+  <div className="portrait">
+    <img src="./content/ava_pipe_499.jpg" alt="портрет автора" />
+  </div>
 </div>
 
 -----
 
-# ростовские сообщества с логотипами
-
-<div style={{display: 'grid', gridTemplateColumns: '1.0fr 1.0fr', gap: '3vw', margin: '8vh 0 0 5vh', width: '92%'}}>
-
-<div>
-<img src="./content/RND.JS.png" style={{width: '35vw', borderRadius: '3vh'}} />
+<div className="chrome">
+  <div className="l"><span className="mark"></span> 00 · community</div>
+  <div className="r">RND</div>
 </div>
 
-<div>
-<img src="./content/ChillHouse.jpg" style={{width: '35vw', borderRadius: '3vh'}} />
-</div>
+<h1 className="h1">ростовские <em>сообщества</em></h1>
+
+<div className="img-grid">
+  <div className="card">
+    <img src="./content/RND.JS.png" alt="RND.JS" />
+    <div className="cap">RND.JS — митапы про JavaScript на юге</div>
+  </div>
+  <div className="card">
+    <img src="./content/ChillHouse.jpg" alt="ChillHouse" />
+    <div className="cap">ChillHouse — место, где встречаемся</div>
+  </div>
 </div>
 
 -----
-
-

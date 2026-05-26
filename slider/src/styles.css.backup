@@ -1,0 +1,808 @@
+/* ============================================================
+   JavaScript, который мы потеряли — CodeFest 16
+   Drop-in styles.css for the Mnemonica Slider (React + MDX).
+   Replaces slider/src/styles.css with a CodeFest-branded look:
+   navy #001C3B + cyan #33A3DC + pink #FF3179.
+
+   This file targets the class names your existing MDX already
+   emits — slide-title, slide-subtitle, slide-callout,
+   slide-interstitial, borderline, inlineCode, codemedium,
+   codebig, codesmall, star-wars-*, primary/secondary/accent/
+   danger, etc. — so no MDX edits are needed.
+
+   Author: Виктор Вершанский · @wentout
+   ============================================================ */
+
+/* === FONTS — keep your local TTFs, with Google fallback === */
+@font-face { font-family:'Montserrat'; font-style:normal; font-weight:400; font-display:swap;
+  src: url('/fonts/Montserrat-Regular.ttf') format('truetype'); }
+@font-face { font-family:'Montserrat'; font-style:normal; font-weight:700; font-display:swap;
+  src: url('/fonts/Montserrat-Bold.ttf') format('truetype'); }
+@font-face { font-family:'Montserrat'; font-style:normal; font-weight:800; font-display:swap;
+  src: url('/fonts/Montserrat-ExtraBold.ttf') format('truetype'); }
+@font-face { font-family:'Geologica'; font-style:normal; font-weight:300; font-display:swap;
+  src: url('/fonts/Geologica-Light.ttf') format('truetype'); }
+@font-face { font-family:'Geologica'; font-style:normal; font-weight:600; font-display:swap;
+  src: url('/fonts/Geologica-SemiBold.ttf') format('truetype'); }
+@font-face { font-family:'JetBrains Mono'; font-style:normal; font-weight:400; font-display:swap;
+  src: url('/fonts/JetBrainsMono-400.ttf') format('truetype'); }
+@font-face { font-family:'JetBrains Mono'; font-style:normal; font-weight:700; font-display:swap;
+  src: url('/fonts/JetBrainsMono-700.ttf') format('truetype'); }
+
+/* === DESIGN TOKENS === */
+:root {
+  /* CodeFest palette */
+  --cf-bg:        #001C3B;
+  --cf-bg-2:      #052b4f;
+  --cf-surface:   #0a3a66;
+  --cf-code-bg:   #00121F;
+  --cf-pink:      #FF3179;
+  --cf-blue:      #33A3DC;
+  --cf-white:     #FFFFFF;
+  --cf-cream:     #EFEFEF;
+  --cf-muted:     #6C8AAB;
+  --cf-rule:      rgba(255,255,255,0.10);
+  --cf-rule-2:    rgba(255,255,255,0.18);
+
+  /* Semantic colour roles (used by .primary/.secondary/.accent/.danger) */
+  --color-primary:   var(--cf-white);
+  --color-secondary: var(--cf-blue);
+  --color-accent:    var(--cf-pink);
+  --color-danger:    var(--cf-pink);
+  --color-muted:     var(--cf-muted);
+  --color-text:      var(--cf-white);
+
+  /* Fonts */
+  --font-heading: 'Montserrat', 'Inter', system-ui, sans-serif;
+  --font-body:    'Geologica', 'Inter', system-ui, sans-serif;
+  --font-sans:    'Geologica', 'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Roboto Mono', ui-monospace, monospace;
+
+  /* Sizing — keep vh-based so it scales with the framework */
+  --title-xxl: 16vh;
+  --title-xl:  13vh;
+  --title-lg:  10vh;
+  --title-md:  8vh;
+  --title-sm:  6vh;
+  --title-xs:  4vh;
+  --subtitle:  3.2vh;
+  --body:      2.6vh;
+  --caption:   2.4vh;
+
+  --space-xs:  1vh;
+  --space-sm:  1.5vh;
+  --space-md:  2vh;
+  --space-lg:  3vh;
+  --space-xl:  5vh;
+  --space-xxl: 12vh;
+}
+
+/* === BASE === */
+* { box-sizing: border-box; }
+body {
+  background: var(--cf-bg);
+  color: var(--cf-white);
+  font-family: var(--font-body);
+  font-weight: 300;
+  letter-spacing: -0.002em;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.Slide {
+  display: block;
+  margin: 0;
+  width: min(100vw, calc(100vh * 16 / 9));
+  height: min(100vh, calc(100vw * 9 / 16));
+  background: var(--cf-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  color: var(--cf-white);
+  overflow: hidden;
+}
+/* subtle brand vignette */
+.Slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(70vw 40vh at 12% -10%, rgba(51,163,220,0.10), transparent 60%),
+    radial-gradient(60vw 50vh at 100% 110%, rgba(255,49,121,0.06), transparent 60%);
+  z-index: 0;
+}
+.Slide > * { position: relative; z-index: 1; }
+
+/* CodeFest logo — top right (kept from your styles, lives on /public/content/) */
+.Slide::after {
+  content: '';
+  position: absolute;
+  top: 3vh;
+  right: 3vw;
+  width: 10vw;
+  height: 6vh;
+  background-image: url('/content/logo_codefest.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right top;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* === SLIDE CONTENT WRAP === */
+.SlideContent {
+  padding: 7vh 7vw 6vh 7vw;
+  width: 100%;
+  height: 100%;
+}
+
+/* === DEFAULT HEADINGS (MDX `# Heading`) === */
+.Slide .SlideContent > h1:first-child,
+.Slide h1 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: var(--title-md);
+  color: var(--cf-white);
+  text-transform: none;
+  letter-spacing: -0.015em;
+  line-height: 1.02;
+  margin: 0 0 4vh 0;
+}
+.Slide h1.big   { font-size: var(--title-lg); }
+.Slide h1.big2  { font-size: var(--title-md); }
+
+.Slide h2 { font-family: var(--font-heading); font-weight: 700; font-size: 4.5vh; color: var(--cf-white); letter-spacing: -0.01em; }
+.Slide h3 { font-family: var(--font-heading); font-weight: 600; font-size: 3.4vh; color: var(--cf-cream); letter-spacing: -0.005em; }
+.Slide h4 { font-size: 2.6vh; color: var(--cf-cream); font-weight: 500; }
+.Slide h5 { font-size: 2vh;   color: var(--cf-muted); font-weight: 500; }
+
+.Slide p {
+  font-family: var(--font-body);
+  font-size: var(--body);
+  line-height: 1.45;
+  color: var(--cf-cream);
+}
+
+/* Make em / strong fit the brand vocabulary */
+.Slide em      { color: var(--cf-blue); font-style: normal; }
+.Slide strong  { color: var(--cf-pink); font-weight: 700; }
+
+/* === SEMANTIC COLOUR MODIFIERS (used everywhere as .primary etc) === */
+.primary   { color: var(--color-primary)   !important; }
+.secondary { color: var(--color-secondary) !important; }
+.accent    { color: var(--color-accent)    !important; }
+.danger    { color: var(--color-danger)    !important; }
+.muted     { color: var(--color-muted)     !important; }
+.red       { color: var(--cf-pink)         !important; }
+.center    { text-align: center; }
+
+/* === TITLE SLIDES (Title / Title2 / StarterSlide components) === */
+.Slide .Title,
+.Slide .Title2,
+.Slide .StarterSlide { display: block; text-align: center; }
+
+.Slide .Title h1 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: var(--title-xxl);
+  margin: 18vh 0 0 0;
+  color: var(--cf-white);
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  line-height: 0.92;
+}
+.SlideContent .Title .subtitle {
+  font-family: var(--font-body);
+  font-size: 6vh;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--cf-cream);
+  margin: 2vh 0 0 0;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+.SlideContent .Title .subtitle-red { color: var(--cf-pink); }
+
+.Slide .Title2 h1 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: var(--title-xxl);
+  margin-top: 30vh;
+  color: var(--cf-white);
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+}
+
+.Slide .StarterSlide h1 {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-style: italic;
+  font-size: var(--title-xl);
+  margin-top: 38vh;
+  color: var(--cf-white);
+  letter-spacing: -0.02em;
+  text-transform: none;
+  line-height: 1.05;
+}
+.Slide .StarterSlide h1 em { color: var(--cf-blue); }
+.Slide .StarterSlide p {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 3vh;
+  color: var(--cf-pink);
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  margin: 6vh auto 0;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.4vw;
+}
+.Slide .StarterSlide p::before {
+  content: ''; width: 4vw; height: 2px; background: var(--cf-pink);
+}
+
+/* Speaker card (Title slide) */
+.speaker-card {
+  position: absolute;
+  left: 7vw;
+  bottom: 7vh;
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  z-index: 5;
+}
+.speaker-photo {
+  width: 14vh;
+  height: 14vh;
+  border-radius: 50%;
+  border: 4px solid var(--cf-blue);
+  object-fit: cover;
+  box-shadow: 0 0 30px -8px rgba(51,163,220,0.6);
+}
+.speaker-name {
+  font-family: var(--font-body);
+  font-size: 3vh;
+  font-weight: 600;
+  color: var(--cf-white);
+  line-height: 1.15;
+  text-align: left;
+  margin: 0;
+}
+/* Title slides: no footer / no logo (you set this with :has() — kept) */
+.Slide:has(.speaker-card) .Footer,
+.Slide:has(.speaker-card)::after { display: none; }
+
+/* author line (Starter slide) */
+.author {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 2.4vh;
+  margin-left: 22vw;
+  border-top: 2px solid var(--cf-pink);
+  color: var(--cf-white);
+  padding-top: 1.5vh;
+  letter-spacing: 0.05em;
+}
+
+/* === slide-title / slide-subtitle (chapter openers) === */
+.Slide .slide-title {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: var(--title-xl);
+  color: var(--cf-white);
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  line-height: 0.92;
+  text-align: center;
+  margin: 18vh 0 0 0;
+}
+.Slide .SlideContent h1.slide-title { margin-left: 0; margin-top: 18vh; }
+.Slide .slide-title.secondary { color: var(--cf-blue); }
+.Slide .slide-title.accent    { color: var(--cf-pink); }
+
+.Slide .slide-subtitle {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-style: italic;
+  font-size: var(--subtitle);
+  color: var(--cf-cream);
+  margin-top: 4vh;
+  text-align: center;
+  margin-left: 0;
+}
+.Slide .slide-subtitle h2 {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 4.6vh;
+  color: var(--cf-cream);
+  text-transform: none;
+  text-align: center;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.Slide .slide-subtitle.muted { color: var(--cf-muted); }
+.Slide .slide-subtitle.muted h2 { color: var(--cf-muted); }
+
+/* === borderline — huge background numeral === */
+.Slide h1.borderline {
+  position: absolute;
+  right: 4vw;
+  bottom: -12vh;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 50vh;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--cf-blue);
+  opacity: 0.6;
+  pointer-events: none;
+  user-select: none;
+  margin: 0;
+  z-index: 0;
+}
+.Slide h1.borderline2 {
+  position: absolute;
+  right: -10vw;
+  top: -10vh;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 90vh;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--cf-pink);
+  opacity: 0.35;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* === slide-callout — left-border accent block === */
+.Slide .slide-callout {
+  margin: 5vh 0 0 0;
+  padding: 2vh 0 2vh 3vw;
+  border-left: 5px solid var(--cf-blue);
+  max-width: 80vw;
+  text-align: left;
+}
+.Slide .slide-callout h2,
+.Slide .slide-callout h3 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+  text-transform: none;
+  margin: 0;
+}
+.Slide .slide-callout h2 { font-size: 5vh; font-weight: 700; color: var(--cf-white); line-height: 1.1; }
+.Slide .slide-callout h3 { font-size: 3.4vh; font-weight: 500; color: var(--cf-cream); margin-top: 1vh; line-height: 1.25; }
+
+.Slide .slide-callout h2.primary,
+.Slide .slide-callout h3.primary   { color: var(--cf-white); }
+.Slide .slide-callout h2.secondary,
+.Slide .slide-callout h3.secondary { color: var(--cf-blue); }
+.Slide .slide-callout h2.accent,
+.Slide .slide-callout h3.accent    { color: var(--cf-pink); }
+.Slide .slide-callout h2.danger,
+.Slide .slide-callout h3.danger    { color: var(--cf-pink); }
+
+/* === slide-layout — bullet-style ordered explainer === */
+.Slide .slide-layout {
+  margin-top: 4vh;
+  margin-left: 6vw;
+  max-width: 80vw;
+}
+.Slide .slide-layout h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 5vh;
+  color: var(--cf-blue);
+  text-transform: none;
+  letter-spacing: -0.005em;
+  margin-bottom: 1.5vh;
+}
+.Slide .slide-layout h2.secondary { color: var(--cf-pink); }
+.Slide .slide-layout p,
+.Slide .slide-layout h3 {
+  font-family: var(--font-body);
+  font-size: 2.6vh;
+  color: var(--cf-cream);
+  margin-left: 2vw;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* === slide-interstitial — single huge phrase === */
+.Slide .slide-interstitial {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0 8vw;
+}
+.Slide .slide-interstitial h1 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: var(--title-xxl);
+  color: var(--cf-white);
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  line-height: 0.9;
+  margin: 0;
+}
+.Slide .slide-interstitial h1.secondary { color: var(--cf-blue); }
+.Slide .slide-interstitial h1.accent    { color: var(--cf-pink); }
+
+/* === slide-text — centred stacked phrases === */
+.Slide .slide-text { margin-top: 6vh; text-align: center; }
+.Slide .slide-text h1 { font-size: var(--title-lg); font-weight: 800; margin-bottom: 2vh; text-transform: uppercase; }
+.Slide .slide-text h2 { font-size: var(--title-md); font-weight: 600; margin-bottom: 2vh; font-style: italic; color: var(--cf-blue); font-family: var(--font-heading); text-transform: none; }
+.Slide .slide-text h3 { font-size: var(--title-sm); font-weight: 500; margin-bottom: 2vh; color: var(--cf-cream); font-family: var(--font-body); }
+.Slide .slide-text p  { font-size: var(--body); color: var(--cf-cream); margin-bottom: 1.5vh; }
+
+/* === slide-visual — image wrapper === */
+.Slide .slide-visual { text-align: center; margin-top: 2vh; }
+.Slide .slide-visual img { max-width: 88vw; max-height: 70vh; border-radius: 1.5vh; box-shadow: 0 4vh 8vh -2vh rgba(0,0,0,0.5); }
+
+/* === INLINE CODE (chips) === */
+.inlineCode,
+code.inlineCode,
+.Slide code.inlineCode {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.92em;
+  background: rgba(51,163,220,0.10) !important;
+  color: var(--cf-blue) !important;
+  padding: 2px 9px;
+  border-radius: 6px;
+  border: 1px solid rgba(51,163,220,0.30) !important;
+  border-left: 1px solid rgba(51,163,220,0.30) !important;
+  white-space: nowrap;
+}
+
+/* === CODE BLOCKS (Prism via @theme-ui/prism) === */
+.Slide pre,
+.Slide pre[class*="language-"] {
+  background: var(--cf-code-bg) !important;
+  color: var(--cf-white) !important;
+  border: 1px solid var(--cf-rule);
+  border-left: 3px solid var(--cf-blue) !important;
+  border-radius: 1.5vh;
+  padding: 3vh 3vw !important;
+  margin: 2vh 0 !important;
+  font-family: var(--font-mono) !important;
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04),
+              0 4vh 8vh -2vh rgba(0,0,0,0.5);
+}
+.Slide pre code,
+.Slide pre[class*="language-"] code {
+  font-family: var(--font-mono) !important;
+  background: transparent !important;
+  border: 0 !important;
+  font-weight: 400;
+  font-variant-ligatures: contextual;
+  line-height: 1.5;
+}
+
+/* size modifiers — your existing class names */
+.Slide .prism-code { padding-left: 5vw; font-size: 4vh !important; border-radius: 1.5vh; }
+.Slide .codegiant,
+.Slide .codegiantnoshift,
+.Slide .codegiantshift { font-size: 6.2vh !important; }
+.Slide .codehuge,
+.Slide .codehugeshift  { font-size: 4.6vh !important; }
+.Slide .codebig,
+.Slide .codebig pre    { font-size: 4.2vh !important; }
+.Slide .codemedium,
+.Slide .codemedium pre { font-size: 3vh !important; }
+.Slide .codemediumshift { font-size: 3vh !important; }
+.Slide .codesmall,
+.Slide .codesmall pre  { font-size: 2.2vh !important; line-height: 1.4; }
+.Slide .codesmaller    { font-size: 2.4vh !important; }
+.Slide .codesmallshift { font-size: 2.2vh !important; }
+.Slide .codejsx        { font-size: 1.8vh !important; }
+.Slide .codejsxbig     { font-size: 4.8vh !important; }
+
+/* === PRISM TOKEN COLOURS (CodeFest palette) === */
+/* @theme-ui/prism uses ThemeUI's prism preset.  These selectors target the
+   Prism token classes directly and override any preset colours. */
+.Slide .token.comment,
+.Slide .token.prolog,
+.Slide .token.doctype,
+.Slide .token.cdata        { color: #4a6a87 !important; font-style: italic; }
+.Slide .token.punctuation  { color: #c6d6e6 !important; }
+.Slide .token.namespace    { opacity: 0.7; }
+.Slide .token.property,
+.Slide .token.tag,
+.Slide .token.boolean,
+.Slide .token.number,
+.Slide .token.constant,
+.Slide .token.symbol       { color: var(--cf-pink) !important; }
+.Slide .token.selector,
+.Slide .token.attr-name,
+.Slide .token.string,
+.Slide .token.char,
+.Slide .token.builtin,
+.Slide .token.inserted     { color: #9ee493 !important; }
+.Slide .token.operator,
+.Slide .token.entity,
+.Slide .token.url,
+.Slide .language-css .token.string,
+.Slide .style .token.string { color: #c6d6e6 !important; }
+.Slide .token.atrule,
+.Slide .token.attr-value,
+.Slide .token.keyword      { color: var(--cf-blue) !important; }
+.Slide .token.function,
+.Slide .token.class-name   { color: #ffd87d !important; }
+.Slide .token.regex,
+.Slide .token.important,
+.Slide .token.variable     { color: #ff9676 !important; }
+.Slide .token.important,
+.Slide .token.bold         { font-weight: 700; }
+.Slide .token.italic       { font-style: italic; }
+.Slide .token.deleted      { color: var(--cf-pink) !important; text-decoration: line-through; }
+
+/* Run-Me / generic buttons (theme-ui <Button>) */
+.SlideContent button {
+  position: absolute;
+  top: auto;
+  right: 5vw;
+  bottom: 8vh;
+  left: auto;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 2vh;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cf-white);
+  background: var(--cf-pink);
+  border: 0;
+  padding: 1.4vh 2.4vw 1.4vh 2vw;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 1vw;
+  box-shadow:
+    0 2vh 5vh -1.5vh rgba(255,49,121,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.18);
+  transition: transform 120ms ease, box-shadow 200ms ease, background 200ms ease;
+}
+.SlideContent button::before {
+  content: '';
+  width: 0; height: 0;
+  border-left: 1.2vh solid var(--cf-white);
+  border-top: 0.8vh solid transparent;
+  border-bottom: 0.8vh solid transparent;
+}
+.SlideContent button:hover  { transform: translateY(-1px); }
+.SlideContent button:active { transform: translateY(1px); }
+
+/* === LISTS — used inside slide-text / generic MDX === */
+.Slide ul, .Slide ol { padding-left: 4vh; margin: 2vh 0; }
+.Slide ul li, .Slide ol li {
+  font-family: var(--font-body);
+  font-size: var(--body);
+  color: var(--cf-white);
+  line-height: 1.55;
+  margin-bottom: 1vh;
+}
+.Slide ul li::marker { color: var(--cf-pink); }
+
+/* === TABLES (Shift / ShiftTable / ShiftTableMore — yours) === */
+.Slide table { color: var(--cf-white); }
+.ShiftTable, .ShiftTableMore, .Shift { margin-left: 8vw; }
+.ShiftTable td, .ShiftTableMore td   { text-align: center; vertical-align: middle; font-size: 2vh; color: var(--cf-cream); }
+.ShiftTable td p, .ShiftTableMore td p { margin-left: 5vh; font-size: 3vh; }
+.ShiftTableMore td h3 { color: var(--cf-pink); margin-right: 5vh; font-size: 5vh; }
+.Shift > h1:first-child { margin-left: 2vw; }
+
+/* === STAR WARS CRAWL (recoloured to CodeFest palette) === */
+.star-wars-container {
+  position: absolute;
+  inset: 0;
+  margin-bottom: 20vh;
+  overflow: hidden;
+  perspective: 500px;
+}
+.star-wars-crawl {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  transform-origin: 50% 100%;
+  transform: rotateX(25deg);
+}
+.crawl-content {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  width: 80%;
+  max-width: 1500px;
+  transform: translateX(-50%);
+  text-align: center;
+  animation: crawl 60s linear infinite;
+  mask-image: linear-gradient(180deg, transparent 0%, #000 25%, #000 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 25%, #000 70%, transparent 100%);
+}
+.crawl-line {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 5vh;
+  line-height: 1.45;
+  color: var(--cf-blue);
+  margin: 0 0 4vh 0;
+  text-align: center;
+}
+.crawl-big {
+  font-family: var(--font-heading);
+  font-size: 10vh;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--cf-white);
+  margin-top: 6vh;
+}
+@keyframes crawl {
+  0%   { top: 100%; }
+  100% { top: -260%; }
+}
+
+/* === SNOWFLAKES container (magic-snowflakes) — recolour to pink === */
+#snowflakes-container {
+  z-index: 1000;
+  position: absolute;
+  width: 100%; height: 100%;
+  top: 0; left: 0;
+  overflow: hidden;
+  display: none;
+}
+#snowflakes-container.active { display: block; }
+#snowflakes-link {
+  color: var(--cf-blue);
+  z-index: 1000;
+  width: 100%;
+  position: absolute;
+  bottom: 30px;
+  text-align: center;
+  margin: auto;
+  font-family: var(--font-mono);
+  font-size: 1.6vh;
+  letter-spacing: 0.10em;
+}
+#snowflakes-link a { color: var(--cf-blue); text-decoration: underline; }
+
+/* === FOOTER (Footer.tsx) === */
+.Footer {
+  font-family: var(--font-mono);
+  font-size: 1.8vh;
+  letter-spacing: 0.06em;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: var(--cf-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 3vw 2.5vh 3vw;
+  z-index: 5;
+}
+.Footer .myname,
+.Footer .slides {
+  border-top: 2px solid var(--cf-pink);
+  padding: 1.2vh 1vw 0 1vw;
+  position: static;
+  background: transparent;
+}
+.Footer .myname { color: var(--cf-cream); font-weight: 500; }
+.Footer .slides { color: var(--cf-white); font-weight: 700; text-align: right; }
+
+/* === PROGRESSOR (top-of-slide progress bar) === */
+progress {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  border: 0;
+  background: rgba(255,255,255,0.06);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 6;
+}
+progress::-webkit-progress-bar { background: rgba(255,255,255,0.06); }
+progress::-webkit-progress-value { background: linear-gradient(90deg, var(--cf-blue), var(--cf-pink)); }
+progress::-moz-progress-bar      { background: linear-gradient(90deg, var(--cf-blue), var(--cf-pink)); }
+
+/* === ERROR OVERLAY === */
+#rootError {
+  z-index: 100;
+  position: absolute;
+  width: 100%; height: 100%;
+  top: 0; left: 0;
+  padding: 10vh 5vh 5vh 17vh;
+  font-family: var(--font-mono);
+  font-size: 2.4vh;
+  color: var(--cf-pink);
+  background: rgba(0,28,59,0.92);
+  backdrop-filter: blur(8px);
+  display: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* === CHART (D3) === */
+.Chart {
+  font-size: 3.4vh;
+  color: var(--cf-cream);
+  text-align: center;
+  vertical-align: bottom;
+  min-height: 70vh;
+}
+.Chart svg path { stroke: var(--cf-blue); }
+.Chart svg .donut-arc:nth-child(odd)  { fill: var(--cf-blue); }
+.Chart svg .donut-arc:nth-child(even) { fill: var(--cf-pink); }
+.Chart svg text { fill: var(--cf-white); font-family: var(--font-mono); }
+
+#chartAbs  { position: absolute; top: 45vh; width: 89vw; height: 30vh; }
+#chartAbs2 { position: absolute !important; top: 14vh; width: 89vw; height: 30vh; }
+
+/* === MERMAID (recoloured to CodeFest) === */
+.Mermaid { margin: 2vh auto; max-width: 90%; }
+.Mermaid svg { max-height: 55vh; width: auto; }
+.Mermaid .node rect,
+.Mermaid .node circle,
+.Mermaid .node ellipse,
+.Mermaid .node polygon,
+.Mermaid .node path {
+  fill: var(--cf-bg-2) !important;
+  stroke: var(--cf-blue) !important;
+  stroke-width: 2px !important;
+}
+.Mermaid .node .label,
+.Mermaid .nodeLabel,
+.Mermaid .edgeLabel {
+  color: var(--cf-white) !important;
+  fill: var(--cf-white) !important;
+  font-family: var(--font-mono) !important;
+}
+.Mermaid .edge-thickness-normal,
+.Mermaid .edge-pattern-solid { stroke: var(--cf-blue) !important; stroke-width: 2px !important; }
+.Mermaid .arrowheadPath      { fill: var(--cf-blue) !important; }
+.Mermaid .cluster rect       { fill: rgba(10,58,102,0.5) !important; stroke: var(--cf-pink) !important; }
+.Mermaid .label-container    { fill: var(--cf-bg-2) !important; stroke: var(--cf-blue) !important; }
+
+/* === TIMELINE TEXT (yours, kept) === */
+.timelineText, .timelineText2 { line-height: 3vh; margin-top: 0; color: var(--cf-cream); }
+.timelineText h1, .timelineText2 h1 { line-height: 3vh; margin-top: 0; font-size: 2.5vw; color: var(--cf-white); }
+.timelineTextBlack, .timelineTextBlack2 { line-height: 3vh; margin-top: 0; color: var(--cf-bg); }
+.timelineTextBlack h1, .timelineTextBlack2 h1 { line-height: 3vh; margin-top: 0; color: var(--cf-bg); font-size: 2.5vw; }
+
+/* === PRINT MODE (#print) === */
+body .print { min-width: 1920px !important; width: 1950px !important; min-height: 1080px; height: 1080px; }
+.slide2print .Slide { display: block; margin: 0; min-height: 100vh; page-break-before: always; }
+.slide2print .Slide .Footer { display: none; }
+
+/* === GLYPH HELPERS — handy for the deck === */
+.accent-text { color: var(--cf-blue); text-shadow: 0 0 10px rgba(51,163,220,0.3); }
+.overlay-panel {
+  background: rgba(0,18,31,0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--cf-rule);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+/* === FINAL: keep things crisp on big projector screens === */
+img { -webkit-user-drag: none; user-select: none; image-rendering: -webkit-optimize-contrast; }
