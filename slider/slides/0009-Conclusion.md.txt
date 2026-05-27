@@ -8,8 +8,8 @@
 
 <h1 className="h1"><em>ссылки</em></h1>
 
-<div className="links">
-  <div className="qr">
+<div className="links" style={{marginLeft: '-30%'}}>
+  <div className="qr" >
     <img src="./content/qrcode.png" alt="QR код" />
   </div>
   <div className="list">
@@ -37,6 +37,12 @@
     <div className="row"><span>←</span> <span className="pink">→</span></div>
   </div>
   <div className="arrows">↓</div>
+</div>
+
+-----
+
+<div className="dip-wrap">
+  <img src="./content/qr-zal-2.png" style={{width:'850px'}} />
 </div>
 
 -----
