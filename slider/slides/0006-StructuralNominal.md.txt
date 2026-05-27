@@ -124,6 +124,7 @@ type AB = A & B;  // { x: never }  ← КОНФЛИКТ!
 // Корректно моделирует наследование цепочки:
 export type Proto<P extends object, T extends object>
  = T & Pick<P, Exclude<keyof P, keyof T>>;
+
 // Родитель: x == 1, Потомок переопределяет на x == 2
 type Parent = { x: 1; y: 'a' };
 type Child  = { x: 2 };

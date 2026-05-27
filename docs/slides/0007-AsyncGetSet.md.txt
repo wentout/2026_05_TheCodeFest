@@ -43,7 +43,6 @@ Object.defineProperty(myObj, 'field', {
     },
     async set (value) { field = value; }
 });
-
 const myObj.field = 321;
 console.log('addition:', addition);    // Promise { ... }
 console.log(await myObj.field);        // 321 (через 1 сек)
@@ -100,7 +99,7 @@ const creep = ( await (myObj.field = 321));
 
 -----
 
-<h1 className="h1"><em>всё же</em> посмотрим, как это работает</h1>
+<h1 className="h1"><em>всё же</em> посмотрим</h1>
 
 <div className="code">
 ```javascript
@@ -117,7 +116,7 @@ Object.defineProperty(myObj, 'field', {
 ```
 </div>
 
-<Button onClick={() => { runExample('awaited_assignment')}} className="run-me">Run Me</Button>
+<Button onClick={() => { runExample('awaited_assignment')}} className="run-me">Run Me<span className="hint">example</span></Button>
 
 <div className="callout pink">
   <div className="lead">хотя assignment, увы, <span className="pink">не await'-ится</span></div>
@@ -146,19 +145,19 @@ const value: number = await (myObj.field = 321);
 </div>
 
 <div className="callout">
-  <div className="lead">async get/set — runtime-only, TS видит только <span className="pink">синхронный интерфейс</span></div>
+  <div className="lead">async get/set — runtime-only, <br/>TS видит только <span className="pink">синхронный интерфейс</span></div>
 </div>
 
 -----
 
 <h1 className="h1">Где это <em>может применяться</em></h1>
 
-<div className="split" style={{marginTop:'30px'}}>
+<div className="split" style={{marginTop:'20px'}}>
   <div className="card">
     <div className="badge">Асинхронный getter</div>
     <ul>
-      <li>обогащение данных: <code className="ic">fetch</code> конфига</li>
-      <li>общение с асинхронными протоколами</li>
+      <li>обогащение данных</li>
+      <li>асинхронные протоколы</li>
       <li>ленивые вычисления</li>
     </ul>
   </div>
@@ -172,14 +171,14 @@ const value: number = await (myObj.field = 321);
   </div>
 </div>
 
-<div className="callout pink" style={{marginTop:'30px'}}>
-  <div className="lead">Нужно решить: ждать предыдущий <code className="ic">set</code> или перезаписывать?</div>
-  <div className="sub">Иначе — race condition. Берегите <span className="pink">A.C.I.D.</span></div>
+<div className="callout pink" style={{marginTop:'20px'}}>
+  <div className="lead">Но нужно решить: <br/>ждать предыдущий <code className="ic">set</code> <br/>или перезаписывать?</div>
+  <div className="sub">Иначе — race condition. <br/>Берегите <span className="pink">A.C.I.D.</span></div>
 </div>
 
 -----
 
 <div className="dip-wrap">
-  <div className="caption">. . . и это мы ещё не начали . . .</div>
+  <div className="caption">. . . и это ещё не всё . . .</div>
   <img src="./content/dip.png" alt="пингвин" />
 </div>

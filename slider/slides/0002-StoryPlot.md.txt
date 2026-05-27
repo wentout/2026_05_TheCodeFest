@@ -36,11 +36,11 @@
 
 <h1 className="h1">раньше уже <em>рассказывал</em></h1>
 
-<div style={{display:'grid',gridTemplateColumns:'1.5fr 1.2fr',gap:'34px',alignItems:'center',marginTop:'30px',width:'90%'}}>
+<div style={{display:'grid',gridTemplateColumns:'1fr 2fr',gap:'34px',alignItems:'center',marginTop:'30px',width:'92%'}}>
   <div>
-    <div className="h2 lower" style={{fontSize:'60px'}}>... но есть ощущение,<br/><span className="muted">что многие пропустили</span></div>
+    <div className="h2 lower" style={{fontSize:'60px'}}>... но есть ощущение,<br/><span className="muted">что в рассказах упустил важное</span></div>
     <div className="callout pink">
-      <div className="lead">так что — пройдём ещё раз,<br/>и медленнее.</div>
+      <div className="lead">так что — попробую ещё раз, может быть сейчас получится ...</div>
     </div>
   </div>
   <div className="img-frame">

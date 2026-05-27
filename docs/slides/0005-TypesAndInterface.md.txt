@@ -14,12 +14,10 @@
 
 <div className="code">
 ```javascript
-// POJO — обычный объект (Type)
 const someObject = {
     name: 'myType',
     createdAt: new Date()
 };
-// Но мы можем добавить Interface!
 Object.setPrototypeOf(someObject, {
     describe () {
         return `Type ${this.name} created at ${this.createdAt}`;
@@ -30,36 +28,12 @@ console.log(someObject.describe());  // работает!
 </div>
 
 <div className="callout">
-  <div className="lead">Тип получил Интерфейс через <span className="pink">прототип!</span></div>
-</div>
-
------
-
-<h1 className="h1"><em>Тот же</em> результат через Constructor</h1>
-
-<div className="code">
-```javascript
-// Constructor — это Interface
-function Interface(name) {
-    this.name = name;
-    this.createdAt = new Date();
-}
-// но мы можем добавить тип
-Interface.prototype.describe = function() {
-    return `Interface ${this.name} created at ${this.createdAt}`;
-};
-const myInstance = new Interface('MyInterface');
-console.log(myInstance.describe());  // тот же результат!
-```
-</div>
-
-<div className="callout">
   <div className="lead"><code className="ic">POJO</code> + <code className="ic">setPrototypeOf</code> === <code className="ic">new Constructor</code></div>
 </div>
 
 -----
 
-<h1 className="h1"><em>Тот же</em> результат через Constructor</h1>
+<h1 className="h1"><em>Используя</em> Constructor</h1>
 
 <div className="code">
 ```javascript
@@ -68,7 +42,6 @@ function Interface(name) {
     this.name = name;
     this.createdAt = new Date();
 }
-// но мы можем добавить тип
 Interface.prototype.describe = function() {
     return `Interface ${this.name} created at ${this.createdAt}`;
 };
@@ -77,10 +50,8 @@ console.log(myInstance.describe());  // тот же результат!
 ```
 </div>
 
-<Button onClick={() => { runExample('types_vs_interface')}} className="run-me">Run Me</Button>
-
 <div className="callout">
-  <div className="lead"><span className="cyan">Type</span> + <span className="pink">Interface</span> === Instance с поведением</div>
+  <div className="lead">Прото-<span className="pink">Тип</span> получил <span className="pink">Интерфейс!</span></div>
 </div>
 
 -----
@@ -98,29 +69,25 @@ interface MyInterface {
 }
 type MyInstance = MyType & MyInterface;
 interface MyCtor extends NewableFunction {
-    new(name: string): MyInstance;
+    new (name: string): MyInstance;
     prototype: MyInterface;
 }
 ```
-</div>
-
-<div className="callout">
-  <div className="lead">Тип — структура, Интерфейс — поведение, <code className="ic">&</code> — объединение</div>
 </div>
 
 -----
 
 <h1 className="h1">а <em>как в TypeScript</em> ...</h1>
 
-<div className="img-frame bleed" style={{maxWidth:'1500px',margin:'0 auto'}}>
-  <img src="./content/type_and_interface.png" alt="тип и интерфейс" />
+<div className="img-frame bleed" style={{maxWidth:'1700px',margin:'0 auto'}}>
+  <img src="./content/type_and_interface.png" alt="тип и интерфейс" style={{width:'1400px'}} />
 </div>
 
 -----
 
-<h1 className="h1"><em>NewableFunction</em> в TS?</h1>
+<h1 className="h1 lower" style={{fontSize:'54px'}}>что такое <code className="ic" style={{fontSize:'0.85em'}}>NewableFunction</code>?</h1>
 
-<div className="code">
+<div className="code code-md">
 ```typescript
 // Встроенный тип TS — НЕ для прямого использования!
 interface NewableFunction {
@@ -135,22 +102,20 @@ const ctor: NewableFunction = function() {};
 </div>
 
 <div className="callout pink">
-  <div className="lead"><code className="ic">NewableFunction</code> — интерфейс-заглушка, не тип для конструкторов</div>
+  <div className="lead"><code className="ic">NewableFunction</code> — <em>интерфейс-заглушка</em>,<br/> не тип для конструкторов</div>
 </div>
 
 -----
 
-<h1 className="h1"><em>extends</em> NewableFunction</h1>
+<h1 className="h1 lower" style={{fontSize:'54px'}}>логично через <code className="ic" style={{fontSize:'0.85em'}}>extends</code></h1>
 
-<div className="code">
+<div className="code code-md">
 ```typescript
 // Declaration merging + extends = работающий прототип
 interface MyConstructor extends NewableFunction {
     new (): MyInstance;
     prototype: MyProto;
 }
-
-// Теперь можем типизировать:
 interface MyProto {
     shared: string;
 }

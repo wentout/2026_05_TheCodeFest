@@ -28,9 +28,9 @@
   <div className="r">RND</div>
 </div>
 
-<h1 className="h1">ростовские <em>сообщества</em></h1>
+<h1 className="h1" style={{marginTop: '100px'}}>ростовские <em>сообщества</em></h1>
 
-<div className="img-grid">
+<div className="img-grid" style={{ width: '80%'}}>
   <div className="card">
     <img src="./content/RND.JS.png" alt="RND.JS" />
     <div className="cap">RND.JS — митапы про JavaScript на юге</div>
@@ -40,5 +40,31 @@
     <div className="cap">ChillHouse — место, где встречаемся</div>
   </div>
 </div>
+
+-----
+
+<div className="dip-wrap">
+  <div className="caption"> Chairman TC39 & Node.js Author </div>
+  <img src="./content/additions/ryan.jpg" alt="Chairman TC39 & Node.js Author" />
+</div>
+
+-----
+
+<div className="dip-wrap">
+  <div className="caption"> Chairman on Don </div>
+  <img src="./content/additions/chairman_on_don.jpg" alt="Chairman on Don" />
+</div>
+
+-----
+
+  <img src="./content/additions/forbes_src.jpg" style={{height: '100%', marginLeft: '30%' }}/>
+
+-----
+
+<div className="dip-wrap">
+  <img src="./content/additions/forbes.jpg" />
+</div>
+
+
 
 -----

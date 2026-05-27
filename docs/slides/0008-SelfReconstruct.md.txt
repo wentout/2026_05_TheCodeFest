@@ -88,11 +88,11 @@ myElement.innerText = 123;      // set скажет в консоль
 ```
 </div>
 
-<Button onClick={() => { openExample('MyHTMLElement')}} className="run-me">Run Me</Button>
+<Button onClick={() => { openExample('MyHTMLElement')}} className="run-me">Run Me<span className="hint">example</span></Button>
 
 -----
 
-<h1 className="h1">Спросил <em>Gemini AI</em> : « Можешь Повторить ?»</h1>
+<h1 className="h1">Спросил <em>Gemini AI</em> : <br/>« Можешь Повторить ?»</h1>
 
 <div className="code code-sm">
 ```javascript
@@ -110,11 +110,11 @@ which is the only valid way to achieve this in the DOM.
 ```
 </div>
 
-<Button onClick={() => { openExample('GeminiTest')}} className="run-me">Run Me</Button>
+<Button onClick={() => { openExample('GeminiTest')}} className="run-me">Run Me<span className="hint">example</span></Button>
 
 -----
 
-<h1 className="h1">Ответ Gemini AI : да <em>« давай ещё по одной »</em> ...</h1>
+<h1 className="h1">Ответ Gemini AI : <br/>да <em>« давай ещё по одной »</em> ...</h1>
 
 <div className="code code-sm">
 ```javascript
@@ -132,11 +132,11 @@ For Self Reconstruct:
 ```
 </div>
 
-<Button onClick={() => { openExample('GeminiTest_Re_Re')}} className="run-me">Run Me</Button>
+<Button onClick={() => { openExample('GeminiTest_Re_Re')}} className="run-me">Run Me<span className="hint">example</span></Button>
 
 -----
 
-<h1 className="h1">Спросил <em>KIMI K2.6</em> : « умеете, ну — могёте »</h1>
+<h1 className="h1">Спросил <em>KIMI K2.6</em> : <br/>« умеете, ну — могёте »</h1>
 
 <div className="code code-sm">
 ```javascript
@@ -154,7 +154,7 @@ Technique:
 ```
 </div>
 
-<Button onClick={() => { openExample('MyHTMLElementReconstructible')}} className="run-me">Run Me</Button>
+<Button onClick={() => { openExample('MyHTMLElementReconstructible')}} className="run-me">Run Me<span className="hint">example</span></Button>
 
 -----
 
@@ -189,8 +189,7 @@ const SelfReConstructor = function () {
     const isItSelf = main === SelfReConstructor;
     const Self = function () {
         if (new.target) {
-            return new (isItSelf ?
-                SelfReConstructor : main);
+            return new (isItSelf ? SelfReConstructor : main);
         }
         return Self;
     };
@@ -203,7 +202,7 @@ const SelfReConstructor = function () {
 
 -----
 
-<h1 className="h1">и, да, то есть потом можно <em>вот так</em></h1>
+<h1 className="h1">то есть потом можно <em>вот так</em></h1>
 
 <div className="code">
 ```javascript
@@ -221,7 +220,7 @@ item instanceof Object;             // true
 </div>
 
 <div className="callout pink">
-  <div className="lead"><code className="ic">item</code> — одновременно и <span className="cyan">Тип</span> и <span className="pink">Интерфейс</span> !</div>
+  <div className="lead"><code className="ic">item</code> — одновременно и <span className="cyan">Тип</span> и <span className="cyan">Интерфейс</span> !</div>
 </div>
 
 -----
@@ -270,7 +269,7 @@ class MyInheritedItem extends re {
   <div className="lead"><code className="ic">MyInheritedItem instanceof item</code></div>
 </div>
 
-<Button onClick={() => { runExample('self_reconstruct')}} className="run-me">Run Me</Button>
+<Button onClick={() => { runExample('self_reconstruct')}} className="run-me">Run Me<span className="hint">example</span></Button>
 
 -----
 
@@ -278,7 +277,6 @@ class MyInheritedItem extends re {
 
 <div className="code">
 ```typescript
-// self — это и экземпляр, и конструктор
 interface Self {
     new (): Self;
     value: number;
@@ -294,29 +292,61 @@ const re: Self = new item;   // ok — item is constructible
 ```
 </div>
 
-<div className="callout">
-  <div className="lead">Identity pattern: тип сам себя порождает — рекурсивный <code className="ic">new () => Self</code></div>
+-----
+
+<h1 className="h1"><em>Зачем</em> само-воспроизведение</h1>
+
+<div style={{display:'grid',gridTemplateColumns:'1.4fr 1fr',gap:'20px',alignItems:'start',marginTop:'30px'}}>
+  <div className="split" style={{display:'flex',flexDirection:'column',gap:'24px'}}>
+    <div className="card">
+      <div className="badge">Возможности</div>
+      <ul>
+        <li>Пересоздать экземпляр с нуля</li>
+        <li>Склонировать с новыми аргументами</li>
+        <li>Undo / Redo: повторить создание</li>
+      </ul>
+    </div>
+    <div className="card alt">
+      <div className="badge">Синтаксис</div>
+      <ul>
+        <li><code className="ic">new myItem</code></li>
+        <li>каждый объект знает, как себя пересоздать</li>
+        <li><code className="ic">new myItem.MyReConstructibleField</code></li>
+        <li>удобно для типизированных полей</li>
+      </ul>
+    </div>
+  </div>
+  <div style={{display:'grid',placeItems:'center', visibility:'hidden'}}>
+    <img src="./content/Valik.png" alt="Валик" style={{width:'550px',borderRadius:'16px',marginTop:'7%'}} />
+  </div>
 </div>
 
 -----
 
 <h1 className="h1"><em>Зачем</em> само-воспроизведение</h1>
 
-<div className="split" style={{marginTop:'30px'}}>
-  <div className="card">
-    <div className="badge">Возможности</div>
-    <ul>
-      <li>Пересоздать экземпляр с нуля</li>
-      <li>Склонировать с новыми аргументами</li>
-      <li>Undo / Redo: повторить создание</li>
-    </ul>
+<div style={{display:'grid',gridTemplateColumns:'1.4fr 1fr',gap:'20px',alignItems:'start',marginTop:'30px'}}>
+  <div className="split" style={{display:'flex',flexDirection:'column',gap:'24px'}}>
+    <div className="card">
+      <div className="badge">Возможности</div>
+      <ul>
+        <li>Пересоздать экземпляр с нуля</li>
+        <li>Склонировать с новыми аргументами</li>
+        <li>Undo / Redo: повторить создание</li>
+      </ul>
+    </div>
+    <div className="card alt">
+      <div className="badge">Синтаксис</div>
+      <ul>
+        <li><code className="ic">new myItem</code></li>
+        <li>каждый объект знает, как себя пересоздать</li>
+        <li><code className="ic">new myItem.MyReConstructibleField</code></li>
+        <li>удобно для типизированных полей</li>
+      </ul>
+    </div>
   </div>
-  <div className="card alt">
-    <div className="badge">Синтаксис</div>
-    <ul>
-      <li><code className="ic">new myItem</code> — каждый объект знает, как себя пересоздать</li>
-      <li><code className="ic">new myItem.MyReConstructibleField</code> — удобно для типизированных полей</li>
-    </ul>
+  <div style={{display:'grid',placeItems:'center'}}>
+    <img src="./content/Valik.png" alt="Валик" style={{width:'550px',borderRadius:'16px',marginTop:'7%'}} />
   </div>
 </div>
 

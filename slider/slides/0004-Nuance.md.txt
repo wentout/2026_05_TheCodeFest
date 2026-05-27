@@ -69,17 +69,17 @@ type MyFn = () => void;
     <ul>
       <li>Какая структура? Какие поля?</li>
       <li>Какой тип значения?</li>
-      <li>Описывает данные, не поведение.</li>
+      <li>Описывает данные, не поведение</li>
     </ul>
     <div className="footer-note"><em>Описывает Структуру: ЧТО ЭТО ТАКОЕ</em></div>
   </div>
   <div className="card alt">
     <div className="badge">🔄 ИНТЕРФЕЙС ( Алгоритм )</div>
-    <h3 style={{color:'var(--pink)'}}>контракт «До и После»</h3>
+    <h3 style={{color:'var(--pink)'}}>контракт <br/>«До и После»</h3>
     <ul>
       <li>«До» — что нужно для создания</li>
       <li>«После» — что получится в результате</li>
-      <li>Объясняет трансформацию из Типа в Тип</li>
+      <li>Описывает трансформацию Типов</li>
     </ul>
     <div className="footer-note"><em>Описывает Поведение: КАК ОНО СЕБЯ ВЕДЁТ</em></div>
   </div>
@@ -110,7 +110,7 @@ type Config = {
 
 <h1 className="h1">Interface <em>VS</em> Type</h1>
 
-<div className="split" style={{marginTop:'30px'}}>
+<div className="split" style={{marginTop:'30px', gridTemplateColumns: '0.9fr 1.1fr' }}>
   <div className="card">
     <div className="badge">📦 TYPE</div>
     <ul>
@@ -149,6 +149,6 @@ type Config = {
 -----
 
 <div className="dip-wrap">
-  <div className="caption">. . . вот как-то так . . .</div>
+  <div className="caption">. . . как-то так . . .</div>
   <img src="./content/dip.png" alt="пингвин" />
 </div>

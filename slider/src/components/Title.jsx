@@ -21,10 +21,10 @@ Title.prototype.View = function () {
 					<div className="badge">@wentout</div>
 				</div>
 				<div className="title-wrap">
-					<div className="pre-title">ДОКЛАД #00 · КТО ТАКИЕ, ЧТО ТАКОЕ</div>
+					<div className="pre-title">ДОКЛАД #ØØ · ЧТО ЭТО ТАКОЕ</div>
 					<div className="title">{pre}<em>{cyan}</em></div>
 					<div className="sub">{this.subtitle}</div>
-					<div className="caption">{this.caption || '\u00a0'}</div>
+					<div className="caption" style={{marginLeft: '8px'}}>{this.caption || '\u00a0'}</div>
 				</div>
 				<div className="cover-foot">
 					<span className="speaker"><b>Виктор Вершанский</b> · <em>Ростов-на-Дону</em> → весь интернет</span>

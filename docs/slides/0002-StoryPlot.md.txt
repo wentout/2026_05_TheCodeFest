@@ -36,11 +36,11 @@
 
 <h1 className="h1">раньше уже <em>рассказывал</em></h1>
 
-<div style={{display:'grid',gridTemplateColumns:'1.5fr 1.2fr',gap:'34px',alignItems:'center',marginTop:'30px',width:'90%'}}>
+<div style={{display:'grid',gridTemplateColumns:'1fr 2fr',gap:'34px',alignItems:'center',marginTop:'30px',width:'92%'}}>
   <div>
-    <div className="h2 lower" style={{fontSize:'60px'}}>... но есть ощущение,<br/><span className="muted">что многие пропустили</span></div>
+    <div className="h2 lower" style={{fontSize:'60px'}}>... но есть ощущение,<br/><span className="muted">что в рассказах упустил важное</span></div>
     <div className="callout pink">
-      <div className="lead">так что — пройдём ещё раз,<br/>и медленнее.</div>
+      <div className="lead">так что — попробую ещё раз, может быть сейчас получится ...</div>
     </div>
   </div>
   <div className="img-frame">
@@ -170,34 +170,34 @@
 <h1 className="h1">в JS всё — <em>объекты</em></h1>
 
 <div style={{display:'grid',placeItems:'center',marginTop:'-10px'}}>
-  <img src="./content/img/JS_Object_Topology.svg" style={{width:'100%',maxWidth:'1600px'}} />
+  <img src="./content/img/JS_Object_Topology.svg" style={{width:'100%',maxWidth:'1300px'}} />
 </div>
 
 -----
 
-<h1 className="h1">насколько глубока <em>кроличья нора</em>?</h1>
+<h1 className="h1">насколько глубока <em><br/>кроличья нора</em>?</h1>
 
-<div className="img-frame" style={{maxWidth:'1500px',margin:'0 auto'}}>
+<div className="img-frame" style={{maxWidth:'1000px',margin:'0 auto'}}>
   <img src="./content/img/PrototypeChain.png" alt="Prototype chain" />
 </div>
 
-<Button onClick={() => { runExample('PrototypeChainDeepnessTest')}} className="run-me">Run Me</Button>
+<Button onClick={() => { runExample('PrototypeChainDeepnessTest')}} className="run-me">Run Me<span className="hint">example</span></Button>
 
 -----
 
-<h1 className="h1">в общем тут <em>...</em></h1>
+<h1 className="h1">и в общем у меня тут <em>...</em></h1>
 
 <div style={{display:'grid',placeItems:'center',marginTop:'40px'}}>
-  <div className="h2 lower cyan" style={{fontSize:'88px'}}>... есть новые примеры ...</div>
+  <div className="h2 lower cyan" style={{fontSize:'88px'}}>... есть разные примеры ...</div>
 </div>
 
 -----
 
-<h1 className="h1">в общем тут <em>...</em></h1>
+<h1 className="h1">и в общем у меня тут <em>...</em></h1>
 
 <div style={{display:'grid',placeItems:'center',marginTop:'30px'}}>
-  <div className="h2 lower cyan" style={{fontSize:'88px'}}>... есть новые примеры ...</div>
-  <div style={{transform:'rotate(55deg)',marginTop:'60px',textAlign:'center',fontFamily:'var(--ff-mono)',color:'var(--cyan)'}}>
+  <div className="h2 lower cyan" style={{fontSize:'88px'}}>... есть разные примеры ...</div>
+  <div style={{transform:'rotate(55deg)',marginTop:'110px',textAlign:'center',fontFamily:'var(--ff-mono)',color:'var(--cyan)'}}>
     <div style={{fontSize:'48px',lineHeight:'1'}}>↑</div>
     <div style={{fontSize:'96px',lineHeight:'1'}}>← <span style={{color:'var(--pink)'}}>;^)</span> →</div>
     <div style={{fontSize:'48px',lineHeight:'1'}}>↓</div>
