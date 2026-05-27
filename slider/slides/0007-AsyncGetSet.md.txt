@@ -100,7 +100,7 @@ const creep = ( await (myObj.field = 321));
 
 -----
 
-<h1 className="h1"><em>всё же</em> посмотрим, как это работает</h1>
+<h1 className="h1"><em>всё же</em> посмотрим</h1>
 
 <div className="code">
 ```javascript
@@ -117,7 +117,7 @@ Object.defineProperty(myObj, 'field', {
 ```
 </div>
 
-<Button onClick={() => { runExample('awaited_assignment')}} className="run-me">Run Me</Button>
+<Button onClick={() => { runExample('awaited_assignment')}} className="run-me">Run Me<span className="hint">example</span></Button>
 
 <div className="callout pink">
   <div className="lead">хотя assignment, увы, <span className="pink">не await'-ится</span></div>
@@ -146,7 +146,7 @@ const value: number = await (myObj.field = 321);
 </div>
 
 <div className="callout">
-  <div className="lead">async get/set — runtime-only, TS видит только <span className="pink">синхронный интерфейс</span></div>
+  <div className="lead">async get/set — runtime-only, <br/>TS видит только <span className="pink">синхронный интерфейс</span></div>
 </div>
 
 -----
@@ -180,6 +180,6 @@ const value: number = await (myObj.field = 321);
 -----
 
 <div className="dip-wrap">
-  <div className="caption">. . . и это мы ещё не начали . . .</div>
+  <div className="caption">. . . и это ещё не всё . . .</div>
   <img src="./content/dip.png" alt="пингвин" />
 </div>

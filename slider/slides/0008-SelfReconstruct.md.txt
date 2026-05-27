@@ -88,7 +88,7 @@ myElement.innerText = 123;      // set скажет в консоль
 ```
 </div>
 
-<Button onClick={() => { openExample('MyHTMLElement')}} className="run-me">Run Me</Button>
+<Button onClick={() => { openExample('MyHTMLElement')}} className="run-me">Run Me<span className="hint">example</span></Button>
 
 -----
 
@@ -110,7 +110,7 @@ which is the only valid way to achieve this in the DOM.
 ```
 </div>
 
-<Button onClick={() => { openExample('GeminiTest')}} className="run-me">Run Me</Button>
+<Button onClick={() => { openExample('GeminiTest')}} className="run-me">Run Me<span className="hint">example</span></Button>
 
 -----
 
@@ -132,7 +132,7 @@ For Self Reconstruct:
 ```
 </div>
 
-<Button onClick={() => { openExample('GeminiTest_Re_Re')}} className="run-me">Run Me</Button>
+<Button onClick={() => { openExample('GeminiTest_Re_Re')}} className="run-me">Run Me<span className="hint">example</span></Button>
 
 -----
 
@@ -154,7 +154,7 @@ Technique:
 ```
 </div>
 
-<Button onClick={() => { openExample('MyHTMLElementReconstructible')}} className="run-me">Run Me</Button>
+<Button onClick={() => { openExample('MyHTMLElementReconstructible')}} className="run-me">Run Me<span className="hint">example</span></Button>
 
 -----
 
@@ -270,7 +270,7 @@ class MyInheritedItem extends re {
   <div className="lead"><code className="ic">MyInheritedItem instanceof item</code></div>
 </div>
 
-<Button onClick={() => { runExample('self_reconstruct')}} className="run-me">Run Me</Button>
+<Button onClick={() => { runExample('self_reconstruct')}} className="run-me">Run Me<span className="hint">example</span></Button>
 
 -----
 

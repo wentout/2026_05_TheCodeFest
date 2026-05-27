@@ -4,7 +4,7 @@
   <div className="meta">
     <div className="label">part · one</div>
     <div className="name"><em>await</em> new</div>
-    <div className="desc"><code className="ic">new</code> — синхронный. <code className="ic">await</code> — асинхронный. Что если совместить?</div>
+    <div className="desc"><code className="ic">new</code> — синхронный. <code className="ic">await</code> — асинхронный.<br/> Что если совместить?</div>
   </div>
 </div>
 
@@ -17,9 +17,7 @@
 class MyPromise extends Promise {
     constructor(handler) { super(handler); }
 }
-
 const myItem = new MyPromise((resolve) => { resolve(123); });
-
 // Мы можем await-ить результат new!
 console.log(await myItem);  // 123
 
@@ -41,18 +39,16 @@ console.log(myItem instanceof Promise);  // true
 class MyPromise extends Promise {
     constructor(handler) { super(handler); }
 }
-
 // new возвращает thenable
 // await автоматически разворачивает его
 console.log(await new MyPromise((resolve) => {
     resolve(321);
 }));  // 321
-
 // Граница между sync и async construction размыта
 ```
 </div>
 
-<Button onClick={() => { runExample('await_new_problems')}} className="run-me">Run Me</Button>
+<Button onClick={() => { runExample('await_new_problems')}} className="run-me">Run Me<span className="hint">example</span></Button>
 
 <div className="callout">
   <div className="lead">и да: и <code className="ic">new</code> и <code className="ic">await</code> — это <span className="pink">Интерфейс</span></div>
@@ -60,17 +56,16 @@ console.log(await new MyPromise((resolve) => {
 
 -----
 
-<h1 className="h1"><em>можно</em> и без наследования от Promise</h1>
+<h1 className="h1"><em>можно</em> и без Promise</h1>
 
 <div className="code">
 ```javascript
 class MyAsyncClass {
-    field = undefined;
     constructor() {
-        const self = this;
-		return new Promise((resolve) => {
+      const self = this;
+      return new Promise((resolve) => {
             setTimeout(() => {
-                self.field = 123;
+                item.field = 123;
                 resolve(self);
             }, 1000);
         });
@@ -81,16 +76,15 @@ class MyAsyncClass {
 
 -----
 
-<h1 className="h1"><em>можно</em> и без наследования от Promise</h1>
+<h1 className="h1"><em>можно</em> и без Promise</h1>
 
 <div className="code">
 ```javascript
 class MySubAsyncClass extends MyAsyncClass {
     constructor() {
-        // да, super возвращает результат ! 
         const promise = super();
         return new Promise(async (resolve) => {
-            // тут item содержит  this !!!
+            // тут item содержит  this
             const item = await promise;
             console.log(item.field); // 123
             resolve(item);
@@ -116,18 +110,18 @@ class MySubAsyncClass extends MyAsyncClass {
 
     // проверим, что всё получилось 
     console.log(item.field); // 123
-
 } )();
 ```
 </div>
 
-<Button onClick={() => { runExample('asyncClassTest')}} className="run-me">Run Me</Button>
+<Button onClick={() => { runExample('asyncClassTest')}} className="run-me">Run Me<span className="hint">example</span></Button>
 
 -----
 
 <h1 className="h1">а <em>как в TypeScript?</em></h1>
 
 <div className="code">
+
 ```typescript
 interface AsyncConstructor<T> extends NewableFunction {
     new (...args: any[]): Promise<T>;
@@ -135,58 +129,63 @@ interface AsyncConstructor<T> extends NewableFunction {
 class MyPromise<T> extends Promise<T> {
     constructor(executor: (
       resolve: (value: T) => void, reject: (reason?: any) => void
-    ) => void) {
-        super(executor);
-    }
+    ) => void) { super(executor); }
 }
 // await new — тип выводится как T, не Promise<T>
-const item: number = await new MyPromise(
-    (resolve) => resolve(123)
-);
+const item: number = await new MyPromise((resolve) => resolve(123));
 ```
 </div>
 
 <div className="callout">
-  <div className="lead">constructor возвращает <code className="ic">Promise<T></code> — <code className="ic">await</code> разворачивает до <span className="pink">T</span></div>
+  <div className="lead">constructor получает <code className="ic">Promise{'<T>'}</code>
+   — <code className="ic">await</code> отдаёт <span className="pink">T</span></div>
+</div>
+
+
+-----
+
+<h1 className="h1">Паттерн: <code className="ic">await new</code></h1>
+
+<div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'40px',alignItems:'start',marginTop:'30px'}}>
+  <div className="split" style={{display:'flex',flexDirection:'column',gap:'24px'}}>
+    <div className="card">
+      <div className="badge">Вместо двух строк</div>
+      <h3><code className="ic">new Client()</code><br/>+<br/><code className="ic">await client.init()</code></h3>
+      <div className="desc">конструктор сразу возвращает Promise</div>
+    </div>
+    <div className="card alt">
+      <div className="badge">Одна строка</div>
+      <h3><code className="ic">await new Client()</code></h3>
+      <div className="desc">единый интерфейс вместо «лапши»</div>
+      <div className="footer-note" style={{visibility:'hidden'}}>«создающей спагетти код»</div>
+    </div>
+  </div>
+  <div style={{display:'grid',placeItems:'center', visibility:'hidden'}}>
+    <img src="./content/img/pasta.jpg" alt="нау" style={{width:'650px',borderRadius:'16px',marginTop:'50px'}} />
+  </div>
 </div>
 
 -----
 
 <h1 className="h1">Паттерн: <code className="ic">await new</code></h1>
 
-<div className="split">
-  <div className="card">
-    <div className="badge">Вместо двух строк</div>
-    <h3><code className="ic">new Client()</code><br/>+<br/><code className="ic">await client.init()</code></h3>
-    <div className="desc">конструктор сразу возвращает Promise</div>
+<div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'40px',alignItems:'start',marginTop:'30px'}}>
+  <div className="split" style={{display:'flex',flexDirection:'column',gap:'24px'}}>
+    <div className="card">
+      <div className="badge">Вместо двух строк</div>
+      <h3><code className="ic">new Client()</code><br/>+<br/><code className="ic">await client.init()</code></h3>
+      <div className="desc">конструктор сразу возвращает Promise</div>
+    </div>
+    <div className="card alt">
+      <div className="badge">Одна строка</div>
+      <h3><code className="ic">await new Client()</code></h3>
+      <div className="desc">единый интерфейс вместо «лапши»</div>
+      <div className="footer-note">«создающей спагетти код»</div>
+    </div>
   </div>
-  <div className="card alt">
-    <div className="badge">Одна строка</div>
-    <h3><code className="ic">await new Client()</code></h3>
-    <div className="desc">единый интерфейс вместо «лапши»</div>
+  <div style={{display:'grid',placeItems:'center'}}>
+    <img src="./content/img/pasta.jpg" alt="нау" style={{width:'650px',borderRadius:'16px',marginTop:'70px'}} />
   </div>
-</div>
-
------
-
-<h1 className="h1">Паттерн: <code className="ic">await new</code></h1>
-
-<div className="split">
-  <div className="card">
-    <div className="badge">Вместо двух строк</div>
-    <h3><code className="ic">new Client()</code><br/>+<br/><code className="ic">await client.init()</code></h3>
-    <div className="desc">конструктор сразу возвращает Promise</div>
-  </div>
-  <div className="card alt">
-    <div className="badge">Одна строка</div>
-    <h3><code className="ic">await new Client()</code></h3>
-    <div className="desc">единый интерфейс вместо «лапши»</div>
-    <div className="footer-note">«скованных одной цепью» «связанных одной целью»</div>
-  </div>
-</div>
-
-<div style={{display:'grid',placeItems:'center',marginTop:'40px'}}>
-  <img src="./content/nau.webp" alt="нау" style={{width:'350px',borderRadius:'16px'}} />
 </div>
 
 -----

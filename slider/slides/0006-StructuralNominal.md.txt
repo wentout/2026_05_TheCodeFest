@@ -50,10 +50,6 @@ var instance = new TheConstructor;
 ```
 </div>
 
-<div className="callout">
-  <div className="lead">для вывода типа instance нужно объединить существующие типы</div>
-</div>
-
 -----
 
 <h1 className="h1"><em>добавить</em> Тип в Интерфейс</h1>
@@ -71,10 +67,6 @@ Object.assign(
 // typeof existingPOJO & typeof InstanceType<TheConstructor>
 const instance = new TheConstructor; 
 ```
-</div>
-
-<div className="callout">
-  <div className="lead">для вывода типа instance нужно объединить существующие типы</div>
 </div>
 
 -----
@@ -164,7 +156,7 @@ interface Child extends Parent {
 </div>
 
 <div className="callout">
-  <div className="lead"><code className="ic">interface extends</code> заставляет потомка быть совместимым с родителем</div>
+  <div className="lead"><code className="ic">interface extends</code> заставляет потомка<br/> быть совместимым с родителем</div>
 </div>
 
 -----
@@ -192,7 +184,7 @@ type Child = Proto<Parent, { x: 2 }>;
 
 -----
 
-<h1 className="h1">подробно про это я <em>рассказывал</em> в 2023</h1>
+<h1 className="h1">подробно <em>рассказывал</em> в 2023</h1>
 
 <div className="img-frame bleed" style={{maxWidth:'1200px',margin:'0 auto'}}>
   <img src="./content/download.png" alt="скачать презентацию" />

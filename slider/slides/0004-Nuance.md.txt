@@ -14,22 +14,24 @@
 
 <div className="crawl">
   <div className="crawl-inner">
-    <p className="big">Типы или Интерфейсы ?</p>
-    <p>на тех самых ненужОнных просторах</p>
-    <p>ихни-их заблокированных интернетов</p>
-    <p>в сообществах TypeScript 'изёров</p>
-    <p className="big">бушует<br/> великая битва</p>
-    <p>что лучше ?</p>
-    <p className="gap"></p>
-    <p className="big">Типы</p>
-    <p>или</p>
-    <p className="big"> Интерфейсы</p>
-    <p className="gap"></p>
-    <p><img src="./content/in_fear.webp" style={{width:'75%',marginLeft:'7%',borderRadius:'15%'}} /></p>
-    <p className="gap"></p>
-    <p>если бы мы знали</p>
-    <p className="gap"></p>
-    <p>что такое « лучше » ...</p>
+    <div className="crawl-content">
+      <p className="big">Типы или Интерфейсы ?</p>
+      <p>на тех самых ненужОнных просторах</p>
+      <p>ихни-их заблокированных интернетов</p>
+      <p>в сообществах TypeScript 'изёров</p>
+      <p className="big">бушует<br/> великая битва</p>
+      <p>что лучше ?</p>
+      <p className="gap"></p>
+      <p className="big">Типы</p>
+      <p>или</p>
+      <p className="big"> Интерфейсы</p>
+      <p className="gap"></p>
+      <p><img src="./content/in_fear.webp" style={{width:'75%',marginLeft:'7%',borderRadius:'15%'}} /></p>
+      <p className="gap"></p>
+      <p>если бы мы знали</p>
+      <p className="gap"></p>
+      <p>что такое « лучше » ...</p>
+    </div>
   </div>
 </div>
 
@@ -58,7 +60,7 @@ type MyFn = () => void;
 
 -----
 
-<h1 className="h1">Тип — это <em>ЧТО</em>, Интерфейс — <em>контракт</em></h1>
+<h1 className="h1">Тип — это ответ на <em>ЧТО</em> <br/>Интерфейс — <em>контракт</em></h1>
 
 <div className="split" style={{marginTop:'40px'}}>
   <div className="card">
@@ -112,7 +114,7 @@ type Config = {
   <div className="card">
     <div className="badge">📦 TYPE</div>
     <ul>
-      <li>✓ POJO — { a: 1, b: 2 }</li>
+      <li>✓ POJO — {'{ a: 1, b: 2 }'}</li>
       <li>✓ Primitives — number, string</li>
       <li>✓ Array/Map — коллекция</li>
       <li>✓ Instance Data — this.* свойства</li>
@@ -138,10 +140,10 @@ type Config = {
 <h1 className="h1">если <em>совсем упрощать</em></h1>
 
 <div className="interstitial" style={{marginTop:'-30px'}}>
-  <div className="big" style={{fontSize:'160px'}}><span className="cyan">Constructor,<br/>Function, Method</span></div>
-  <div className="label" style={{fontSize:'32px',color:'var(--ink-2)'}}>→ это Интерфейс</div>
-  <div className="big" style={{fontSize:'160px',marginTop:'40px'}}><span className="pink">а всё остальное</span></div>
-  <div className="label" style={{fontSize:'32px',color:'var(--ink-2)'}}>→ это Тип</div>
+  <div className="big" style={{fontSize:'70px'}}><span className="cyan">Constructor,<br/>Function, Method</span></div>
+  <div className="label" style={{fontSize:'82px',color:'var(--ink-2)'}}>→ это Интерфейс</div>
+  <div className="big" style={{fontSize:'70px',marginTop:'40px'}}><span className="pink">а всё остальное</span></div>
+  <div className="label" style={{fontSize:'82px',color:'var(--ink-2)'}}>→ это Тип</div>
 </div>
 
 -----
