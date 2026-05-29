@@ -79,7 +79,7 @@ interface MyCtor extends NewableFunction {
 
 <h1 className="h1">а <em>как в TypeScript</em> ...</h1>
 
-<div className="img-frame bleed" style={{maxWidth:'1700px',margin:'0 auto'}}>
+<div className="bleed" style={{maxWidth:'1700px',margin:'0 auto'}}>
   <img src="./content/type_and_interface.png" alt="тип и интерфейс" style={{width:'1400px'}} />
 </div>
 

@@ -152,28 +152,97 @@ const value: number = await (myObj.field = 321);
 
 <h1 className="h1">Где это <em>может применяться</em></h1>
 
-<div className="split" style={{marginTop:'20px'}}>
-  <div className="card">
-    <div className="badge">Асинхронный getter</div>
-    <ul>
-      <li>обогащение данных</li>
-      <li>асинхронные протоколы</li>
-      <li>ленивые вычисления</li>
-    </ul>
+<div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'40px',alignItems:'start',marginTop:'20px'}}>
+  <div className="split" style={{display:'flex',flexDirection:'column',gap:'24px'}}>
+    <div className="card">
+      <div className="badge">Асинхронный getter</div>
+      <ul>
+        <li>обогащение данных</li>
+        <li>асинхронные протоколы</li>
+        <li>ленивые вычисления</li>
+      </ul>
+    </div>
+    <div className="card alt">
+      <div className="badge">Асинхронный setter</div>
+      <ul>
+        <li>валидация перед записью</li>
+        <li>Buffers || UDP</li>
+        <li>Atomic / Notify</li>
+      </ul>
+    </div>
   </div>
-  <div className="card alt">
-    <div className="badge">Асинхронный setter</div>
-    <ul>
-      <li>валидация перед записью</li>
-      <li>Buffers || UDP</li>
-      <li>Atomic / Notify</li>
-    </ul>
+  <div className="callout pink" style={{marginTop:'2.8%', visibility:'hidden'}}>
+    <div className="lead">Но нужно решить: <br/>ждать предыдущий <code className="ic">set</code> <br/>или отдавать как есть?</div>
+    <div className="sub">Иначе — race condition. <br/>Берегите <span className="pink">A.C.I.D.</span></div>
+    <div className="callout" style={{marginTop:'7%'}}>
+      <div className="lead">И нужно решить: <br/>ждать предыдущий <code className="ic">get/set</code> <br/>или перезаписывать?</div>
+      <div className="sub">Иначе — race condition. <br/>Берегите <span className="pink">S.O.L.I.D.</span></div>
+    </div>
   </div>
 </div>
+-----
 
-<div className="callout pink" style={{marginTop:'20px'}}>
-  <div className="lead">Но нужно решить: <br/>ждать предыдущий <code className="ic">set</code> <br/>или перезаписывать?</div>
-  <div className="sub">Иначе — race condition. <br/>Берегите <span className="pink">A.C.I.D.</span></div>
+<h1 className="h1">Где это <em>может применяться</em></h1>
+
+<div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'40px',alignItems:'start',marginTop:'20px'}}>
+  <div className="split" style={{display:'flex',flexDirection:'column',gap:'24px'}}>
+    <div className="card">
+      <div className="badge">Асинхронный getter</div>
+      <ul>
+        <li>обогащение данных</li>
+        <li>асинхронные протоколы</li>
+        <li>ленивые вычисления</li>
+      </ul>
+    </div>
+    <div className="card alt">
+      <div className="badge">Асинхронный setter</div>
+      <ul>
+        <li>валидация перед записью</li>
+        <li>Buffers || UDP</li>
+        <li>Atomic / Notify</li>
+      </ul>
+    </div>
+  </div>
+  <div className="callout pink" style={{marginTop:'2.8%'}}>
+    <div className="lead">Но нужно решить: <br/>ждать предыдущий <code className="ic">set</code> <br/>или отдавать как есть?</div>
+    <div className="sub">Иначе — race condition. <br/>Берегите <span className="pink">A.C.I.D.</span></div>
+    <div className="callout" style={{marginTop:'7%', visibility:'hidden'}}>
+      <div className="lead">И нужно решить: <br/>ждать предыдущий <code className="ic">get/set</code> <br/>или перезаписывать?</div>
+      <div className="sub">Иначе — race condition. <br/>Берегите <span className="pink">S.O.L.I.D.</span></div>
+    </div>
+  </div>
+</div>
+-----
+
+<h1 className="h1">Где это <em>может применяться</em></h1>
+
+<div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'40px',alignItems:'start',marginTop:'20px'}}>
+  <div className="split" style={{display:'flex',flexDirection:'column',gap:'24px'}}>
+    <div className="card">
+      <div className="badge">Асинхронный getter</div>
+      <ul>
+        <li>обогащение данных</li>
+        <li>асинхронные протоколы</li>
+        <li>ленивые вычисления</li>
+      </ul>
+    </div>
+    <div className="card alt">
+      <div className="badge">Асинхронный setter</div>
+      <ul>
+        <li>валидация перед записью</li>
+        <li>Buffers || UDP</li>
+        <li>Atomic / Notify</li>
+      </ul>
+    </div>
+  </div>
+  <div className="callout pink" style={{marginTop:'2.8%'}}>
+    <div className="lead">Но нужно решить: <br/>ждать предыдущий <code className="ic">set</code> <br/>или отдавать как есть?</div>
+    <div className="sub">Иначе — race condition. <br/>Берегите <span className="pink">A.C.I.D.</span></div>
+    <div className="callout" style={{marginTop:'7%'}}>
+      <div className="lead">И нужно решить: <br/>ждать предыдущий <code className="ic">get/set</code> <br/>или перезаписывать?</div>
+      <div className="sub">Иначе — race condition. <br/>Берегите <span className="pink">S.O.L.I.D.</span></div>
+    </div>
+  </div>
 </div>
 
 -----

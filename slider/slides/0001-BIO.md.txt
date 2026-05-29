@@ -30,7 +30,7 @@
 
 <h1 className="h1" style={{marginTop: '100px'}}>ростовские <em>сообщества</em></h1>
 
-<div className="img-grid" style={{ width: '80%'}}>
+<div className="img-grid" style={{ width: '75%', gap: '0px' }}>
   <div className="card">
     <img src="./content/RND.JS.png" alt="RND.JS" />
     <div className="cap">RND.JS — митапы про JavaScript на юге</div>
@@ -42,6 +42,28 @@
 </div>
 
 -----
+<div className="chrome">
+  <div className="l"><span className="mark"></span> 00 · made by community</div>
+  <div className="r">RND</div>
+</div>
+
+<div className="img-grid" style={{ marginLeft: '3%', width: '75%', marginTop: '10%', gap: '36px' }}>
+  <div className="card">
+    <img src="./content/additions/music.png" alt="music" style={{width:'550px'}}/>
+    <div className="cap">иногда они AI-ят мои песни</div>
+  </div>
+  <div className="card">
+    <img src="./content/additions/qrcode_music.yandex.ru.png" alt="music qr" style={{width:'600px'}}/>
+    <div className="cap">qr для выслушивания</div>
+  </div>
+</div>
+
+-----
+
+<div className="chrome">
+  <div className="l"><span className="mark"></span> 00 · made by community</div>
+  <div className="r">RND</div>
+</div>
 
 <div className="dip-wrap">
   <div className="caption"> Chairman TC39 & Node.js Author </div>
@@ -50,20 +72,34 @@
 
 -----
 
+<div className="chrome">
+  <div className="l"><span className="mark"></span> 00 · made by community</div>
+  <div className="r">RND</div>
+</div>
+
 <div className="dip-wrap">
   <div className="caption"> Chairman on Don </div>
   <img src="./content/additions/chairman_on_don.jpg" alt="Chairman on Don" />
 </div>
 
------
-
-  <img src="./content/additions/forbes_src.jpg" style={{height: '100%', marginLeft: '30%' }}/>
 
 -----
 
-<div className="dip-wrap">
-  <img src="./content/additions/forbes.jpg" />
+<div className="chrome">
+  <div className="l"><span className="mark"></span> 00 · made by community</div>
+  <div className="r">RND</div>
 </div>
+
+  <img src="./content/additions/forbes_src.jpg" style={{height: '100%', marginLeft: '33%', marginTop: '1%', borderRadius: '16px' }}/>
+
+-----
+
+<div className="chrome">
+  <div className="l"><span className="mark"></span> 00 · made by community</div>
+  <div className="r">RND</div>
+</div>
+
+  <img src="./content/additions/forbes.jpg" style={{width: '1350px', marginTop: '3%', marginLeft: '10%', borderRadius: '16px'}} />
 
 
 

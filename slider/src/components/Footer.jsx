@@ -15,7 +15,7 @@ Footer.prototype.View = function () {
 	const app = this;
 	return (
 		<div className="footer" onClick={app.clickNext}>
-			<span className="speaker"><b>Виктор Вершанский</b> · <em>@wentout</em></span>
+			<span className="speaker"> · <em>@wentout</em> · </span>
 			<span className="pageno">{this.pager} <em>/</em> {this.count}</span>
 		</div>
 	);

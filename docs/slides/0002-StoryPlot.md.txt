@@ -95,7 +95,7 @@
 <div className="audience">
   <div className="q q1"><span className="num">01</span><span>Часто ли вы сталкиваетесь с <em>JavaScript</em>?</span></div>
   <div className="q q2"><span className="num">02</span><span>Ваш <em>AI</em> уже умеет в JavaScript?</span></div>
-  <div className="q q3"><span className="num">03</span><span>Или агенты «<strong>сам решили</strong>», что знают <em>JavaScript</em>?</span></div>
+  <div className="q q3"><span className="num">03</span><span>Или агенты «<strong>сам решили</strong>», <br/>что знают <em>JavaScript</em>?</span></div>
 </div>
 
 -----
@@ -105,7 +105,7 @@
 <div className="audience">
   <div className="q q1 on"><span className="num">01</span><span>Часто ли вы сталкиваетесь с <em>JavaScript</em>?</span></div>
   <div className="q q2"><span className="num">02</span><span>Ваш <em>AI</em> уже умеет в JavaScript?</span></div>
-  <div className="q q3"><span className="num">03</span><span>Или агенты «<strong>сам решили</strong>», что знают <em>JavaScript</em>?</span></div>
+  <div className="q q3"><span className="num">03</span><span>Или агенты «<strong>сам решили</strong>», <br/>что знают <em>JavaScript</em>?</span></div>
 </div>
 
 -----
@@ -115,7 +115,7 @@
 <div className="audience">
   <div className="q q1 on"><span className="num">01</span><span>Часто ли вы сталкиваетесь с <em>JavaScript</em>?</span></div>
   <div className="q q2 on"><span className="num">02</span><span>Ваш <em>AI</em> уже умеет в JavaScript?</span></div>
-  <div className="q q3"><span className="num">03</span><span>Или агенты «<strong>сам решили</strong>», что знают <em>JavaScript</em>?</span></div>
+  <div className="q q3"><span className="num">03</span><span>Или агенты «<strong>сам решили</strong>», <br/>что знают <em>JavaScript</em>?</span></div>
 </div>
 
 -----
@@ -125,29 +125,29 @@
 <div className="audience">
   <div className="q q1 on"><span className="num">01</span><span>Часто ли вы сталкиваетесь с <em>JavaScript</em>?</span></div>
   <div className="q q2 on"><span className="num">02</span><span>Ваш <em>AI</em> уже умеет в JavaScript?</span></div>
-  <div className="q q3 on"><span className="num">03</span><span>Или агенты «<strong>сам решили</strong>», что знают <em>JavaScript</em>?</span></div>
+  <div className="q q3 on"><span className="num">03</span><span>Или агенты «<strong>сам решили</strong>», <br/>что знают <em>JavaScript</em>?</span></div>
 </div>
 
 -----
 
 <div className="history">
   <div className="year">1995 <span className="day">· 4 декабря</span></div>
-  <p>дата рождения JavaScript.</p>
-  <p>у более развитых языков было наследование на классах.</p>
-  <p>но прототипы — гораздо более простой паттерн.</p>
-  <p>просто положи что-нибудь в <code className="ic">Constructor.prototype</code>.</p>
-  <p>и всё — это будет унаследовано.</p>
+  <p>дата рождения JavaScript</p>
+  <p>у более развитых языков было наследование на классах</p>
+  <p>но прототипы — гораздо более простой паттерн</p>
+  <p>просто положи что-нибудь в <code className="ic">Constructor.prototype</code></p>
+  <p>и всё — это будет унаследовано</p>
 </div>
 
 -----
 
 <div className="history">
   <div className="year">1995 <span className="day">· 4 декабря</span></div>
-  <p>дата рождения JavaScript.</p>
-  <p>у более развитых языков было наследование на классах.</p>
-  <p>но прототипы — гораздо более простой паттерн.</p>
-  <p>просто положи что-нибудь в <code className="ic">Constructor.prototype</code>.</p>
-  <p>и всё — это будет унаследовано.</p>
+  <p>дата рождения JavaScript</p>
+  <p>у более развитых языков было наследование на классах</p>
+  <p>но прототипы — гораздо более простой паттерн</p>
+  <p>просто положи что-нибудь в <code className="ic">Constructor.prototype</code></p>
+  <p>и всё — это будет унаследовано</p>
   <div className="punch">— <span className="pink">зачем?</span></div>
 </div>
 
@@ -157,11 +157,11 @@
 
 <div className="history">
   <div className="year">1995 <span className="day">· 4 декабря</span></div>
-  <p>дата рождения JavaScript.</p>
-  <p>у более развитых языков было наследование на классах.</p>
-  <p>но прототипы — гораздо более простой паттерн.</p>
-  <p>просто положи что-нибудь в <code className="ic">Constructor.prototype</code>.</p>
-  <p>и всё — это будет унаследовано.</p>
+  <p>дата рождения JavaScript</p>
+  <p>у более развитых языков было наследование на классах</p>
+  <p>но прототипы — гораздо более простой паттерн</p>
+  <p>просто положи что-нибудь в <code className="ic">Constructor.prototype</code></p>
+  <p>и всё — это будет унаследовано</p>
   <div className="punch snow">❄ конечно — из-за снежинок ! ❄</div>
 </div>
 
