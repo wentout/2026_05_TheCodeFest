@@ -4,7 +4,7 @@
   <div className="meta">
     <div className="label">part · zero</div>
     <div className="name"><em>эпизоды</em></div>
-    <div className="desc">несколько коротких историй, прежде чем мы доберёмся до прототипов, типов и интерфейсов.</div>
+    <div className="desc">пара коротких историй, прежде чем мы пойдём &laquo;дальше&raquo;</div>
   </div>
 </div>
 
