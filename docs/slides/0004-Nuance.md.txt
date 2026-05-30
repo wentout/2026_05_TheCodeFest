@@ -4,7 +4,7 @@
   <div className="meta">
     <div className="label">part · two</div>
     <div className="name"><em>нюансы</em></div>
-    <div className="desc">Типы или Интерфейсы? В TypeScript — почти одно и то же. В JavaScript runtime — и вовсе одно.</div>
+    <div className="desc">Типы или Интерфейсы? В TypeScript — почти одно и то же. <br/>В JavaScript runtime — и вовсе одно.</div>
   </div>
 </div>
 
@@ -62,7 +62,7 @@ type MyFn = () => void;
 
 <h1 className="h1">Тип — это ответ на <em>ЧТО</em> <br/>Интерфейс — <em>контракт</em></h1>
 
-<div className="split" style={{marginTop:'40px'}}>
+<div className="split" style={{marginTop:'40px', gridTemplateColumns:'0.9fr 1.1fr'}}>
   <div className="card">
     <div className="badge">📦 ТИП ( Структура )</div>
     <h3 style={{color:'var(--cyan)'}}>ответ на вопрос «ЧТО?»</h3>

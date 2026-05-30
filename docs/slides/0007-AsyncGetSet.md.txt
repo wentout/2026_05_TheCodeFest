@@ -4,7 +4,7 @@
   <div className="meta">
     <div className="label">part · five</div>
     <div className="name">async <em>get ~ set</em></div>
-    <div className="desc">Когда присваивание — не то, чем кажется. async get/set в JavaScript runtime.</div>
+    <div className="desc">Когда присваивание — не то, чем кажется. <br/>async get/set в JavaScript runtime.</div>
   </div>
 </div>
 

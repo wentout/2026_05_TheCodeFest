@@ -4,7 +4,7 @@
   <div className="meta">
     <div className="label">part · three</div>
     <div className="name">Type + <em>Interface</em></div>
-    <div className="desc">Может ли Тип (POJO) вести себя как Интерфейс? Может — через прототип.</div>
+    <div className="desc">Может ли Тип (POJO) вести себя как Интерфейс? <br/>Может — через прототип.</div>
   </div>
 </div>
 
